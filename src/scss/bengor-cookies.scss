@@ -1,0 +1,92 @@
+// This file is part of the BenGorCookies library.
+//
+// (c) Beñat Espiña <benatespina@gmail.com>
+// (c) Gorka Laucirica <gorka.lauzirika@gmail.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+
+$bengor-cookies-background-color: #999 !default;
+$bengor-cookies-color: #fff !default;
+$bengor-cookies-link-color: $bengor-cookies-color !default;
+$bengor-cookies-link-hover-color: darken($bengor-cookies-link-color, 20%) !default;
+$bengor-cookies-button-background-color: darken($bengor-cookies-background-color, 20%) !default;
+$bengor-cookies-button-hover-background-color: darken($bengor-cookies-button-background-color, 20%) !default;
+$bengor-cookies-button-color: $bengor-cookies-color !default;
+$bengor-cookies-content-max-width: 850px !default;
+
+.bengor-cookies {
+  background: $bengor-cookies-background-color;
+  bottom: 0;
+  color: $bengor-cookies-color;
+  font-size: 11px;
+  line-height: 16px;
+  padding: 20px 30px;
+  position: fixed;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform .3s;
+  width: 100%;
+  z-index: 100;
+}
+
+.bengor-cookies__text {
+  margin: 0;
+}
+
+.bengor-cookies__link {
+  color: $bengor-cookies-link-color;
+  text-decoration: underline;
+  transition: color .3s;
+
+  &:hover {
+    color: $bengor-cookies-link-hover-color;
+  }
+}
+
+.bengor-cookies--visible {
+  transform: translateY(0);
+}
+
+.bengor-cookies__actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.bengor-cookies__button {
+  background-color: $bengor-cookies-button-background-color;
+  color: $bengor-cookies-button-color;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 12px 30px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color .3s;
+
+  &:hover {
+    background-color: $bengor-cookies-button-hover-background-color;
+    color: $bengor-cookies-button-color;
+  }
+}
+
+@media only screen and (min-width: 641px) {
+  .bengor-cookies {
+    align-items: center;
+    display: flex;
+    font-size: 13px;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .bengor-cookies__content {
+    margin-right: 15px;
+    max-width: $bengor-cookies-content-max-width;
+  }
+
+  .bengor-cookies__actions {
+    margin: 0;
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "bengor-cookies",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "No dependencies JavaScript library that provided full featured cookies component",
+  "keywords": [
+    "bengor",
+    "cookies"
+  ],
+  "authors": [
+    {
+      "name": "Beñat Espiña Diaz",
+      "email": "benatespina@gmail.com",
+      "homepage": "http://benatespina.com"
+    },
+    {
+      "name": "Gorka Laucirica Ibarra",
+      "email": "gorka.lauzirika@gmail.com",
+      "homepage": "http://gorkalaucirica.net"
+    }
+  ],
+  "main": "dist/bengor-cookies-min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BenGorJS/Cookies"
+  },
+  "bugs": {
+    "url": "https://github.com/BenGorJS/Cookies/issues"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "postcss-cssnext": "^2.4.0"
+  }
+}
