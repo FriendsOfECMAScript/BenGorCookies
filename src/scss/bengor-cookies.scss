@@ -31,6 +31,10 @@ $bengor-cookies-content-max-width: 850px !default;
   z-index: 100;
 }
 
+.bengor-cookies--visible {
+  transform: translateY(0);
+}
+
 .bengor-cookies__text {
   margin: 0;
 }
@@ -43,10 +47,6 @@ $bengor-cookies-content-max-width: 850px !default;
   &:hover {
     color: $bengor-cookies-link-hover-color;
   }
-}
-
-.bengor-cookies--visible {
-  transform: translateY(0);
 }
 
 .bengor-cookies__actions {

@@ -12,8 +12,8 @@
 
 (function () {
 
-  var BenGorCookies = function (selector, options) {
-    return new Cookies(selector, options);
+  var BenGorCookies = function (options) {
+    return new Cookies(options);
   };
 
   function hasClass(el, className) {
@@ -65,14 +65,20 @@
     };
   };
 
-  var Cookies = function (selector, options) {
+  var Cookies = function (options) {
     options = options || {};
 
     var
-      mainElement = document.querySelector(selector),
+      mainElement = document.querySelector('.js-bengor-cookies'),
       links = options.links || 'a, button, .bengor-cookies__actions, .bengor-cookies__button',
       maxPageYOffset = options.maxPageYOffset || false,
       GTM = GoogleTagManager(options.GTMId);
+
+    if (null === mainElement) {
+      console.warn('"js-bengor-cookies" class is not added to your cookies element');
+      return;
+    }
+    addClass(mainElement, 'bengor-cookies');
 
     function setCookie(name, value, expirationDays) {
       var
