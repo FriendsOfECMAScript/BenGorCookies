@@ -1,9 +1,10 @@
 .bengor-cookies {
   background: #999;
   bottom: 0;
+  box-sizing: border-box;
   color: #fff;
-  font-size: 11px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 22px;
   padding: 20px 30px;
   position: fixed;
   text-align: center;
@@ -60,7 +61,6 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    font-size: 13px;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;

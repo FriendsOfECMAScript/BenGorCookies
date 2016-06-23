@@ -18,9 +18,10 @@ $bengor-cookies-content-max-width: 850px !default;
 .bengor-cookies {
   background: $bengor-cookies-background-color;
   bottom: 0;
+  box-sizing: border-box;
   color: $bengor-cookies-color;
-  font-size: 11px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 22px;
   padding: 20px 30px;
   position: fixed;
   text-align: center;
@@ -76,7 +77,6 @@ $bengor-cookies-content-max-width: 850px !default;
   .bengor-cookies {
     align-items: center;
     display: flex;
-    font-size: 13px;
     justify-content: center;
     padding: 20px;
   }
