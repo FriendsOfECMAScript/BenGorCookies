@@ -1,0 +1,117 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/5.6.0/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.6.0
+3 info using node@v5.6.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/benatespina/Development/bengor-js-cookies',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/benatespina/.npm/bengor-cookies/0.1.0/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/benatespina/.npm correctMkdir not in flight; initializing
+10 info lifecycle bengor-cookies@0.1.0~prepublish: bengor-cookies@0.1.0
+11 silly lifecycle bengor-cookies@0.1.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/benatespina/.npm/bengor-cookies/0.1.0/package.tgz',
+12 verbose tar pack   '/Users/benatespina/Development/bengor-js-cookies' ]
+13 verbose tarball /Users/benatespina/.npm/bengor-cookies/0.1.0/package.tgz
+14 verbose folder /Users/benatespina/Development/bengor-js-cookies
+15 verbose addLocalTarball adding from inside cache /Users/benatespina/.npm/bengor-cookies/0.1.0/package.tgz
+16 verbose correctMkdir /Users/benatespina/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd bengor-cookies@0.1.0
+18 verbose afterAdd /Users/benatespina/.npm/bengor-cookies/0.1.0/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/benatespina/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/benatespina/.npm/bengor-cookies/0.1.0/package/package.json written
+21 silly publish { name: 'bengor-cookies',
+21 silly publish   version: '0.1.0',
+21 silly publish   license: 'MIT',
+21 silly publish   description: 'No dependencies JavaScript library that provided full featured cookies component',
+21 silly publish   keywords: [ 'bengor', 'cookies' ],
+21 silly publish   authors:
+21 silly publish    [ { name: 'Beñat Espiña Diaz',
+21 silly publish        email: 'benatespina@gmail.com',
+21 silly publish        homepage: 'http://benatespina.com' },
+21 silly publish      { name: 'Gorka Laucirica Ibarra',
+21 silly publish        email: 'gorka.lauzirika@gmail.com',
+21 silly publish        homepage: 'http://gorkalaucirica.net' } ],
+21 silly publish   main: 'dist/bengor-cookies-min.js',
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/BenGorJS/Cookies.git' },
+21 silly publish   bugs: { url: 'https://github.com/BenGorJS/Cookies/issues' },
+21 silly publish   devDependencies:
+21 silly publish    { gulp: '^3.9.0',
+21 silly publish      'gulp-concat': '^2.6.0',
+21 silly publish      'gulp-cssnano': '^2.1.0',
+21 silly publish      'gulp-plumber': '^1.1.0',
+21 silly publish      'gulp-postcss': '^6.1.0',
+21 silly publish      'gulp-rename': '^1.2.2',
+21 silly publish      'gulp-sass': '^2.2.0',
+21 silly publish      'gulp-sourcemaps': '^1.6.0',
+21 silly publish      'gulp-uglify': '^1.5.1',
+21 silly publish      'postcss-cssnext': '^2.4.0' },
+21 silly publish   readme: '#BenGorCookies\n> No dependencies JavaScript library that provided full featured cookies component\n\n```html\n<div class="cookies">\n    <div class="cookies__content">\n        <p class="cookies__text">\n            We use cookies to provide a better browsing experience and a more personalized service. If you\n            continue browsing, we consider accepting its use. You can change the settings or get more information\n            by consulting our\n            <a href="/your-awesome-cookies-policy" class="cookies__link" target="_blank">Cookies policy</a>.\n        </p>\n    </div>\n    <div class="cookies__actions">\n        <a class="cookies__button">Accept</a>\n    </div>\n</div>\n```\n\nTo load the library check the following code. The example provides default values of `BenGorCookies` configuration\noptions.\n* `links`: string that contains all the selectors and tags that interacts with cookies accepting them.\n* `maxPageYOffset`: By default scroll interaction is disabled. If this value is an integer value, and the window\nscroll-top is higher the cookies will be accepted.\n* `GTMId`: The Google Tag Manager id. If value is different to undefined when the cookies are accepted Google Tag\nManager container will be inserted before body tag.\n```js\nBenGorCookies(\'.bengor-cookies\', {\n  links: \'a, button, .bengor-cookies__actions, .bengor-cookies__button\',\n  maxPageYOffset: false,\n  GTMId: \'undefined\'\n});\n```\n\n\n\n##Credits\nThis library is created by:\n>\n**@benatespina** - [benatespina@gmail.com](mailto:benatespina@gmail.com)<br>\n**@gorkalaucirica** - [gorka.lauzirika@gmail.com](mailto:gorka.lauzirika@gmail.com)\n\n##Licensing Options\nMIT\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: 'ae920b73825b2bae9d95a2408902e30e725aba0d',
+21 silly publish   homepage: 'https://github.com/BenGorJS/Cookies#readme',
+21 silly publish   _id: 'bengor-cookies@0.1.0',
+21 silly publish   scripts: {},
+21 silly publish   _shasum: 'bf840ebccaf70fbf52f91550e33518e29e8af7e3',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name bengor-cookies
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry uri https://registry.npmjs.org/bengor-cookies
+27 verbose publish registryBase https://registry.npmjs.org/
+28 silly publish uploading /Users/benatespina/.npm/bengor-cookies/0.1.0/package.tgz
+29 verbose request uri https://registry.npmjs.org/bengor-cookies
+30 verbose request sending authorization for write operation
+31 info attempt registry request try #1 at 17:20:44
+32 verbose request using bearer token for auth
+33 verbose request id 1d4eeecaaec1442d
+34 http request PUT https://registry.npmjs.org/bengor-cookies
+35 http 403 https://registry.npmjs.org/bengor-cookies
+36 verbose headers { 'content-type': 'application/json',
+36 verbose headers   'cache-control': 'max-age=300',
+36 verbose headers   'content-length': '95',
+36 verbose headers   'accept-ranges': 'bytes',
+36 verbose headers   date: 'Thu, 23 Jun 2016 15:20:46 GMT',
+36 verbose headers   via: '1.1 varnish',
+36 verbose headers   connection: 'keep-alive',
+36 verbose headers   'x-served-by': 'cache-lhr6348-LHR',
+36 verbose headers   'x-cache': 'MISS',
+36 verbose headers   'x-cache-hits': '0',
+36 verbose headers   'x-timer': 'S1466695244.589978,VS0,VE1517',
+36 verbose headers   vary: 'Accept-Encoding' }
+37 verbose request invalidating /Users/benatespina/.npm/registry.npmjs.org/bengor-cookies on PUT
+38 error publish Failed PUT 403
+39 verbose stack Error: "You cannot publish over the previously published version 0.1.0." : bengor-cookies
+39 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+39 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+39 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+39 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+39 verbose stack     at emitTwo (events.js:100:13)
+39 verbose stack     at Request.emit (events.js:185:7)
+39 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1035:10)
+39 verbose stack     at emitOne (events.js:95:20)
+39 verbose stack     at Request.emit (events.js:182:7)
+39 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:962:12)
+40 verbose statusCode 403
+41 verbose pkgid bengor-cookies
+42 verbose cwd /Users/benatespina/Development/bengor-js-cookies
+43 error Darwin 15.3.0
+44 error argv "/usr/local/Cellar/node/5.6.0/bin/node" "/usr/local/bin/npm" "publish"
+45 error node v5.6.0
+46 error npm  v3.6.0
+47 error code E403
+48 error "You cannot publish over the previously published version 0.1.0." : bengor-cookies
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]
