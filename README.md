@@ -34,9 +34,9 @@ however the rest of the classes are highly recommended for component to maintain
 <div class="bengor-cookies  js-bengor-cookies">
     <div class="bengor-cookies__content">
         <p class="bengor-cookies__text">
-            We use bengor-cookies to provide a better browsing experience and a more personalized service.
-            If you continue browsing, we consider accepting its use. You can change the settings or get
-            more information by consulting our
+            We use bengor-cookies to provide a better browsing experience and a more personalized
+            service. If you continue browsing, we consider accepting its use. You can change the
+            settings or get more information by consulting our
             <a href="/your-awesome-bengor-cookies-policy" class="bengor-cookies__link" target="_blank">
                 Cookies policy
             </a>.
