@@ -12,6 +12,9 @@
 
 var
   gulp = require('gulp'),
+  babelify = require('babelify'),
+  browserify = require('browserify'),
+  buffer = require('vinyl-buffer'),
   concat = require('gulp-concat'),
   cssnext = require('postcss-cssnext'),
   cssnano = require('gulp-cssnano'),
@@ -19,6 +22,7 @@ var
   postcss = require('gulp-postcss'),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
+  source = require('vinyl-source-stream'),
   sourcemaps = require('gulp-sourcemaps'),
   uglify = require('gulp-uglify');
 
@@ -70,7 +74,10 @@ gulp.task('sass:prod', function () {
 });
 
 gulp.task('js', function () {
-  return gulp.src(paths.js + '/*.js')
+  return browserify(paths.js + '/app.js')
+    .transform('babelify', {presets: ['es2015'], comments: false})
+    .bundle()
+    .pipe(source('bengor-cookies.js'))
     .pipe(plumber({
       errorHandler: onError
     }))
@@ -78,13 +85,16 @@ gulp.task('js', function () {
 });
 
 gulp.task('js:prod', function () {
-  return gulp.src(paths.js + '/*.js')
+  return browserify(paths.js + '/app.js')
+    .transform('babelify', {presets: ['es2015'], comments: false})
+    .bundle()
+    .pipe(source('bengor-cookies.min.js'))
     .pipe(plumber({
       errorHandler: onError
     }))
-    .pipe(sourcemaps.init())
-    .pipe(concat('bengor-cookies.min.js'))
+    .pipe(buffer())
     .pipe(uglify({preserveComments: 'license'}))
+    .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.dist));
 });
