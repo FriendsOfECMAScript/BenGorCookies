@@ -1,11 +1,16 @@
 #BenGorCookies
 > Zero dependencies. Lightweight that provides full featured cookies component
 
+[![npm version](https://img.shields.io/npm/v/bengor-cookies.svg?style=flat-square)](https://www.npmjs.com/package/bengor-cookies)
+[![Build Status](http://img.shields.io/travis/BenGorJS/Cookies/master.svg?style=flat-square)](https://travis-ci.org/BenGorJS/Cookies)
+[![NPM Status](http://img.shields.io/npm/dm/bengor-cookies.svg?style=flat-square)](https://www.npmjs.org/package/bengor-cookies)
+[![devDependency Status](https://img.shields.io/david/BenGorJS/Cookies.svg?style=flat-square)](https://david-dm.org/BenGorJS/Cookies#info=dependencies)
+
 ![Snapshot](https://raw.githubusercontent.com/BenGorJS/Cookies/master/snapshot.png)
 
 Everybody needs the cookies component in his website. Style this element is not very complex but the task is quite
-repetitive so, keeping in mind this use case BenGorCookies provides a robust and lightweight (less than 3kb) solution
-to build cookies component.
+repetitive so, keeping in mind this use case BenGorCookies provides a robust and lightweight solution to build
+cookies component.
 
 ##Installation
 The recommended and the most suitable way to install is through *NPM*.
@@ -94,4 +99,4 @@ This library is created by:
 **@gorkalaucirica** - [gorka.lauzirika@gmail.com](mailto:gorka.lauzirika@gmail.com)
 
 ##Licensing Options
-[![License](https://img.shields.io/badge/License-MIT-yellowgreen.svg)](https://github.com/BenGorJS/Cookies/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-yellowgreen.svg?style=flat-square)](https://github.com/BenGorJS/Cookies/blob/master/LICENSE)
