@@ -4,8 +4,8 @@
 ![Snapshot](https://raw.githubusercontent.com/BenGorJS/Cookies/master/snapshot.png)
 
 Everybody needs the cookies component in his website. Style this element is not very complex but the task is quite
-repetitive so, keeping in mind this use case BenGorCookies provides a robust and lightweight (only 4kb with minified
-version) solution to build cookies component.
+repetitive so, keeping in mind this use case BenGorCookies provides a robust and lightweight (less than 3kb) solution
+to build cookies component.
 
 ##Installation
 The recommended and the most suitable way to install is through *NPM*.
@@ -34,10 +34,12 @@ however the rest of the classes are highly recommended for component to maintain
 <div class="bengor-cookies  js-bengor-cookies">
     <div class="bengor-cookies__content">
         <p class="bengor-cookies__text">
-            We use bengor-cookies to provide a better browsing experience and a more personalized service. If you
-            continue browsing, we consider accepting its use. You can change the settings or get more information
-            by consulting our
-            <a href="/your-awesome-bengor-cookies-policy" class="bengor-cookies__link" target="_blank">Cookies policy</a>.
+            We use bengor-cookies to provide a better browsing experience and a more personalized service.
+            If you continue browsing, we consider accepting its use. You can change the settings or get
+            more information by consulting our
+            <a href="/your-awesome-bengor-cookies-policy" class="bengor-cookies__link" target="_blank">
+                Cookies policy
+            </a>.
         </p>
     </div>
     <div class="bengor-cookies__actions">
@@ -49,7 +51,7 @@ however the rest of the classes are highly recommended for component to maintain
 Finally you have to initialize the js. The following code shows the default options.
 ```js
 BenGorCookies({
-  links: 'a, button, .bengor-cookies__actions, .bengor-cookies__button',
+  links: '.bengor-cookies__actions, .bengor-cookies__button',
   maxPageYOffset: false,
   GTMId: 'undefined'
 });
@@ -65,8 +67,8 @@ scroll-top is higher the cookies will be accepted.
 Manager container will be inserted before body tag.
 
 ##Extension points
-Obviously each web needs its theme, so, this library provides some extension points if we are injecting the Sass file in
-the project stylesheets workflow. The following Sass variables are self-explanatory:
+Obviously each web needs its theme, so, this library provides some extension points if we are injecting the Sass file
+in the project stylesheets workflow. The following Sass variables are self-explanatory:
 ```scss
 $bengor-cookies-background-color: #999 !default;
 

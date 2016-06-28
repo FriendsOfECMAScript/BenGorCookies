@@ -70,7 +70,7 @@
 
     var
       mainElement = document.querySelector('.js-bengor-cookies'),
-      links = options.links || 'a, button, .bengor-cookies__actions, .bengor-cookies__button',
+      links = options.links || '.bengor-cookies__actions, .bengor-cookies__button',
       maxPageYOffset = options.maxPageYOffset || false,
       GTM = GoogleTagManager(options.GTMId);
 

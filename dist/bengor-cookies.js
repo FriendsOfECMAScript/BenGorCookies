@@ -70,12 +70,12 @@
 
     var
       mainElement = document.querySelector('.js-bengor-cookies'),
-      links = options.links || 'a, button, .bengor-cookies__actions, .bengor-cookies__button',
+      links = options.links || '.bengor-cookies__actions, .bengor-cookies__button',
       maxPageYOffset = options.maxPageYOffset || false,
       GTM = GoogleTagManager(options.GTMId);
 
     if (null === mainElement) {
-      console.warn('Please, add "js-bengor-cookies" class to your cookies element');
+      console.warn('"js-bengor-cookies" class is not added to your cookies element');
       return;
     }
     addClass(mainElement, 'bengor-cookies');
