@@ -36,7 +36,7 @@ your website Sass workflow.
 Then you have to construct a HTML component something similar to this. Only the `js-bengor-cookies` class is mandatory,
 however the rest of the classes are highly recommended for component to maintain a proper style. 
 ```html
-<div class="bengor-cookies  js-bengor-cookies">
+<div class="bengor-cookies js-bengor-cookies">
     <div class="bengor-cookies__content">
         <p class="bengor-cookies__text">
             We use bengor-cookies to provide a better browsing experience and a more personalized
@@ -55,7 +55,7 @@ however the rest of the classes are highly recommended for component to maintain
 
 Finally you have to initialize the js. The following code shows the default options.
 ```js
-BenGorCookies({
+new BenGorCookies({
   links: '.bengor-cookies__actions, .bengor-cookies__button',
   maxPageYOffset: false,
   GTMId: 'undefined'
@@ -90,6 +90,8 @@ $bengor-cookies-button-hover-background-color: darken($bengor-cookies-button-bac
 $bengor-cookies-button-color: $bengor-cookies-color !default;
 
 $bengor-cookies-content-max-width: 850px !default;
+
+@import 'your/node_modules/root/path/bengor-cookies/src/scss/bengor-cookies';
 ```
 
 ##Credits
