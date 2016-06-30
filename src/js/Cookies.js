@@ -61,16 +61,15 @@ class Cookies {
 
   show() {
     if (!_get('username')) {
-      this.gtm.remove();
       DomHelpers.addClass(this.element, 'bengor-cookies--visible');
     } else {
-      this.gtm.add();
+      this.gtm.insertHTML();
     }
   }
 
   accept() {
     _create('username', Math.floor((Math.random() * 100000000) + 1), 30);
-    this.gtm.add();
+    this.gtm.insertHTML();
 
     DomHelpers.removeClass(this.element, 'bengor-cookies--visible');
   }

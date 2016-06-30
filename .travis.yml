@@ -1,0 +1,26 @@
+# This file is part of the BenGorCookies library.
+#
+# (c) Beñat Espiña <benatespina@gmail.com>
+# (c) Gorka Laucirica <gorka.lauzirika@gmail.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+sudo: false
+
+language: node_js
+
+node_js:
+  - 4
+  - 5
+  - 6
+
+install:
+    - npm install
+
+script:
+    - npm test
+
+cache:
+    directories:
+        - node_modules

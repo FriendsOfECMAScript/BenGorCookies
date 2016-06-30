@@ -17,7 +17,7 @@ class GoogleTagManager {
     this.element.setAttribute('id', 'bengor-cookies-gtm');
   }
 
-  add() {
+  insertHTML() {
     if (this.id === false || this.element.innerHTML) {
       return;
     }
@@ -33,10 +33,6 @@ class GoogleTagManager {
 
     const body = document.getElementsByTagName('BODY')[0];
     body.insertBefore(this.element, body.firstChild);
-  }
-
-  remove() {
-    this.element.innerHTML = '';
   }
 }
 
