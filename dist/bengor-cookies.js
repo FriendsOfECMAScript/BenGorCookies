@@ -76,17 +76,16 @@ var Cookies = function () {
     key: 'show',
     value: function show() {
       if (!_get('username')) {
-        this.gtm.remove();
         DomHelpers.addClass(this.element, 'bengor-cookies--visible');
       } else {
-        this.gtm.add();
+        this.gtm.insertHTML();
       }
     }
   }, {
     key: 'accept',
     value: function accept() {
       _create('username', Math.floor(Math.random() * 100000000 + 1), 30);
-      this.gtm.add();
+      this.gtm.insertHTML();
 
       DomHelpers.removeClass(this.element, 'bengor-cookies--visible');
     }
@@ -159,8 +158,8 @@ var GoogleTagManager = function () {
   }
 
   _createClass(GoogleTagManager, [{
-    key: 'add',
-    value: function add() {
+    key: 'insertHTML',
+    value: function insertHTML() {
       if (this.id === false || this.element.innerHTML) {
         return;
       }
@@ -169,11 +168,6 @@ var GoogleTagManager = function () {
 
       var body = document.getElementsByTagName('BODY')[0];
       body.insertBefore(this.element, body.firstChild);
-    }
-  }, {
-    key: 'remove',
-    value: function remove() {
-      this.element.innerHTML = '';
     }
   }]);
 
