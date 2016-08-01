@@ -192,11 +192,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     var cookies = new _Cookies2.default(options);
 
     window.addEventListener('scroll', function () {
-      if (typeof window.requestAnimationFrame !== 'undefined') {
-        window.requestAnimationFrame(cookies.scrollingAccept.bind(cookies));
-      } else {
+      window.requestAnimationFrame(function () {
         cookies.scrollingAccept();
-      }
+      });
     });
 
     cookies.show();

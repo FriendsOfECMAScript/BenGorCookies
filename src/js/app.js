@@ -17,11 +17,9 @@ import Cookies from './Cookies';
     const cookies = new Cookies(options);
 
     window.addEventListener('scroll', () => {
-      if (typeof window.requestAnimationFrame !== 'undefined') {
-        window.requestAnimationFrame(cookies.scrollingAccept.bind(cookies));
-      } else {
+      window.requestAnimationFrame(() => {
         cookies.scrollingAccept();
-      }
+      });
     });
 
     cookies.show();
