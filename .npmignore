@@ -9,6 +9,6 @@
 /.editorconfig
 /.idea
 /bower_components
-/gulpfile.js
+/gulpfile.babel.js
 /node_modules
 /npm-debug.log
