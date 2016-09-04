@@ -26,12 +26,19 @@ $ bower install --save bengor-cookies
 
 After installation process, you have to include the js and css files in your html.
 ```html
-<link href="/your/path/bengor-cookies/dis/bengor-cookies.min.css" type="text/css" rel="stylesheet">
+<link href="/your/path/bengor-cookies/dist/bengor-cookies.min.css" type="text/css" rel="stylesheet">
 
-<script src="/your/path/bengor-cookies/dist/bengor-cookies.min.js"></script>
+<script src="/your/path/bengor-cookies/dist/bengor-cookies.umd.min.js"></script>
 ```
 > This library provides a fully usable **scss** file that is very interesting to include cookies component styles inside
 your website Sass workflow.
+
+Also, it supports ES2015 modules so, you can easily import the library in your js instead loading the UMD version in the DOM.
+```js
+import BenGorCookies from 'bengor-cookies';
+
+(...your bengor-cookies initialization);
+```
 
 Then you have to construct a HTML component something similar to this. Only the `js-bengor-cookies` class is mandatory,
 however the rest of the classes are highly recommended for component to maintain a proper style. 

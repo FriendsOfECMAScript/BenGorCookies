@@ -30,8 +30,7 @@ const
     npm: './node_modules',
     sass: './src/scss',
     js: './src/js',
-    dist: './dist',
-    lib: './lib'
+    dist: './dist'
   },
   watch = {
     sass: './src/scss/**/*.scss',
@@ -73,7 +72,7 @@ gulp.task('sass:prod', () => {
     .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('js:lib', () => {
+gulp.task('js', () => {
   return gulp.src([
     `${paths.js}/**/*.js`,
     `!${paths.js}/app.js`
@@ -84,14 +83,14 @@ gulp.task('js:lib', () => {
     .pipe(plumber({
       errorHandler: onError
     }))
-    .pipe(gulp.dest(paths.lib));
+    .pipe(gulp.dest(paths.dist));
 });
 
 gulp.task('js:dist', () => {
   return browserify(`${paths.js}/app.js`)
-    .transform('babelify', {presets: ['es2015'], comments: false})
+    .transform('babelify', {presets: ['es2015', 'stage-2'], comments: false})
     .bundle()
-    .pipe(source('bengor-cookies.js'))
+    .pipe(source('bengor-cookies.umd.js'))
     .pipe(plumber({
       errorHandler: onError
     }))
@@ -100,9 +99,9 @@ gulp.task('js:dist', () => {
 
 gulp.task('js:dist:prod', () => {
   return browserify(`${paths.js}/app.js`)
-    .transform('babelify', {presets: ['es2015'], comments: false})
+    .transform('babelify', {presets: ['es2015', 'stage-2'], comments: false})
     .bundle()
-    .pipe(source('bengor-cookies.min.js'))
+    .pipe(source('bengor-cookies.umd.min.js'))
     .pipe(plumber({
       errorHandler: onError
     }))
@@ -115,9 +114,9 @@ gulp.task('js:dist:prod', () => {
 
 gulp.task('watch', () => {
   gulp.watch(watch.sass, ['sass']);
-  gulp.watch(watch.js, ['js:dist', 'js:lib']);
+  gulp.watch(watch.js, ['js:dist', 'js']);
 });
 
-gulp.task('default', ['sass', 'js:dist', 'js:dist:prod', 'js:lib']);
+gulp.task('default', ['sass', 'js:dist', 'js:dist:prod', 'js']);
 
-gulp.task('prod', ['sass:prod', 'js:dist', 'js:dist:prod', 'js:lib']);
+gulp.task('prod', ['sass:prod', 'js:dist', 'js:dist:prod', 'js']);

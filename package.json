@@ -1,6 +1,6 @@
 {
   "name": "bengor-cookies",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "license": "MIT",
   "description": "No dependencies JavaScript library that provided full featured cookies component",
   "keywords": [
@@ -19,7 +19,7 @@
       "homepage": "http://gorkalaucirica.net"
     }
   ],
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/BenGorJS/Cookies"
@@ -28,11 +28,18 @@
     "url": "https://github.com/BenGorJS/Cookies/issues"
   },
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "build": "gulp prod"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "snapshot.png"
+  ],
   "babel": {
     "presets": [
-      "es2015"
+      "es2015",
+      "stage-2"
     ]
   },
   "ava": {
@@ -44,6 +51,7 @@
     "ava": "^0.15.2",
     "babel-core": "^6.10.4",
     "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-2": "^6.13.0",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "gulp": "^3.9.0",
