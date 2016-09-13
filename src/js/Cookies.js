@@ -13,8 +13,6 @@
 import * as CookieHelpers from './Helpers/CookieHelpers';
 import * as DomHelpers from './Helpers/DomHelpers';
 
-import GoogleTagManager from './GoogleTagManager';
-
 class Cookies {
   constructor(options = {}) {
     this.element = document.querySelector('.js-bengor-cookies');
@@ -23,7 +21,7 @@ class Cookies {
     }
     this.links = options.links || '.bengor-cookies__actions, .bengor-cookies__button';
     this.maxPageYOffset = options.maxPageYOffset || false;
-    this.gtm = new GoogleTagManager(options.GTMId);
+    this.renderers = options.renderers || []; 
 
     DomHelpers.addClass(this.element, 'bengor-cookies');
   }
@@ -36,13 +34,18 @@ class Cookies {
     if (!CookieHelpers.get('username')) {
       DomHelpers.addClass(this.element, 'bengor-cookies--visible');
     } else {
-      this.gtm.insertHTML();
+      this.renderers.forEach((renderer) => {
+        renderer.render()
+      });
     }
   }
 
   accept() {
     CookieHelpers.create('username', Math.floor((Math.random() * 100000000) + 1), 30);
-    this.gtm.insertHTML();
+    
+    this.renderers.forEach((renderer) => {
+      renderer.render()
+    });
 
     DomHelpers.removeClass(this.element, 'bengor-cookies--visible');
   }
