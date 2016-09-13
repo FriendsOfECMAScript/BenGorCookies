@@ -12,6 +12,7 @@
 
 import Cookies from './Cookies';
 import GoogleTagManager from './Renderers/GoogleTagManager';
+import Default from './Templates/Default';
 
 (() => {
   window.BenGorCookies = (options) => {
@@ -34,5 +35,9 @@ import GoogleTagManager from './Renderers/GoogleTagManager';
 
   window.BenGorCookiesRenderers = {
     GoogleTagManager
-  }
+  };
+  
+  window.BenGorCookiesTemplates = {
+    Default
+  };
 })();

@@ -14,16 +14,20 @@ import * as CookieHelpers from './Helpers/CookieHelpers';
 import * as DomHelpers from './Helpers/DomHelpers';
 
 class Cookies {
-  constructor(options = {}) {
+  constructor({links = '.js-bengor-cookies-accept', maxPageYOffset = false, renderers = [], template = null} = {}) {
+    if(template) {
+      document.querySelector('body').insertAdjacentHTML('beforeend', template);
+    }
+    
     this.element = document.querySelector('.js-bengor-cookies');
+
     if (null === this.element) {
       throw new DOMError('"js-bengor-cookies" class is not added to your cookies element');
     }
-    this.links = options.links || '.bengor-cookies__actions, .bengor-cookies__button';
-    this.maxPageYOffset = options.maxPageYOffset || false;
-    this.renderers = options.renderers || []; 
-
-    DomHelpers.addClass(this.element, 'bengor-cookies');
+    
+    this.links = links;
+    this.maxPageYOffset = maxPageYOffset;
+    this.renderers = renderers;
   }
 
   getLinks() {
