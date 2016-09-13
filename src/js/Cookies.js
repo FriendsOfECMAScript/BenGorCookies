@@ -10,37 +10,10 @@
 
 'use strict';
 
-import * as DomHelpers from './DomHelpers';
+import * as CookieHelpers from './Helpers/CookieHelpers';
+import * as DomHelpers from './Helpers/DomHelpers';
+
 import GoogleTagManager from './GoogleTagManager';
-
-function _create(name, value, expirationDays) {
-  const date = new Date();
-  let expires = 'expires=';
-
-  date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
-  expires += date.toGMTString();
-  document.cookie = name + '=' + value + '; ' + expires + '; ' +
-    location.hostname.split('.').reverse()[1] + '.' +
-    location.hostname.split('.').reverse()[0] + '; path=/';
-}
-
-function _get(name) {
-  const cookies = document.cookie.split(';');
-
-  name = `${name}=`;
-  for (let i = 0, length = cookies.length; i < length; i++) {
-    let cookie = cookies[i];
-
-    while (cookie.charAt(0) == ' ') {
-      cookie = cookie.substring(1);
-    }
-    if (cookie.indexOf(name) == 0) {
-      return cookie.substring(name.length, cookie.length);
-    }
-  }
-
-  return false;
-}
 
 class Cookies {
   constructor(options = {}) {
@@ -60,7 +33,7 @@ class Cookies {
   }
 
   show() {
-    if (!_get('username')) {
+    if (!CookieHelpers.get('username')) {
       DomHelpers.addClass(this.element, 'bengor-cookies--visible');
     } else {
       this.gtm.insertHTML();
@@ -68,7 +41,7 @@ class Cookies {
   }
 
   accept() {
-    _create('username', Math.floor((Math.random() * 100000000) + 1), 30);
+    CookieHelpers.create('username', Math.floor((Math.random() * 100000000) + 1), 30);
     this.gtm.insertHTML();
 
     DomHelpers.removeClass(this.element, 'bengor-cookies--visible');
