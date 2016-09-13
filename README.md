@@ -1,5 +1,5 @@
 #BenGorCookies
-> Zero dependencies. Lightweight that provides full featured cookies component
+> Cookie warning banner that request user consent, European law compilant. Zero dependencies, fully customizable
 
 [![npm version](https://img.shields.io/npm/v/bengor-cookies.svg?style=flat-square)](https://www.npmjs.com/package/bengor-cookies)
 [![Build Status](http://img.shields.io/travis/BenGorJS/Cookies/master.svg?style=flat-square)](https://travis-ci.org/BenGorJS/Cookies)
