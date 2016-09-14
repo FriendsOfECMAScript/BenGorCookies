@@ -10,33 +10,17 @@
 
 'use strict';
 
-import Cookies from './Cookies';
+import BenGorCookies from './index';
 import GoogleTagManager from './Renderers/GoogleTagManager';
 import Default from './Templates/Default';
 
 (() => {
-  window.BenGorCookies = (options) => {
-    const cookies = new Cookies(options);
-
-    window.addEventListener('scroll', () => {
-      window.requestAnimationFrame(() => {
-        cookies.scrollingAccept();
-      });
-    });
-
-    cookies.show();
-    const elements = document.querySelectorAll(cookies.getLinks());
-    for (let i = 0, iLen = elements.length; i < iLen; i++) {
-      elements[i].addEventListener('click', () => {
-        cookies.accept();
-      });
-    }
-  };
+  window.BenGorCookies = BenGorCookies;
 
   window.BenGorCookiesRenderers = {
     GoogleTagManager
   };
-  
+
   window.BenGorCookiesTemplates = {
     Default
   };
