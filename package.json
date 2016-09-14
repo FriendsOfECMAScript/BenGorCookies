@@ -38,8 +38,7 @@
   "files": [
     "dist",
     "README.md",
-    "snapshot.png",
-    "src/scss"
+    "snapshot.png"
   ],
   "babel": {
     "presets": [
