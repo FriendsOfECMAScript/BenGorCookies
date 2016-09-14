@@ -11,6 +11,7 @@
 'use strict';
 
 import Cookies from './Cookies';
+import GoogleTagManager from './Renderers/GoogleTagManager';
 
 (() => {
   window.BenGorCookies = (options) => {
@@ -30,4 +31,8 @@ import Cookies from './Cookies';
       });
     }
   };
+
+  window.BenGorCookiesRenderers = {
+    GoogleTagManager
+  }
 })();
