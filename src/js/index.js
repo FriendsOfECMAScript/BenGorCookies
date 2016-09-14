@@ -10,7 +10,11 @@
 
 'use strict';
 
+import './../scss/bengor-cookies.scss'
+
 import Cookies from './Cookies';
+import * as BenGorCookiesRenderers from './Renderers/Renderers';
+import * as BenGorCookiesTemplates from './Templates/Templates';
 
 const BenGorCookies = (options) => {
   const cookies = new Cookies(options);
@@ -30,4 +34,8 @@ const BenGorCookies = (options) => {
   }
 };
 
-export default BenGorCookies;
+export {
+  BenGorCookies,
+  BenGorCookiesRenderers,
+  BenGorCookiesTemplates
+};
