@@ -22,7 +22,7 @@ export default {
   output: {
     path: join(__dirname, 'dist'),
     libraryTarget: 'umd',
-    library: 'bengor-cookies',
+    library: 'bengor-cookies'
   },
   devtool: 'source-map',
   module: {

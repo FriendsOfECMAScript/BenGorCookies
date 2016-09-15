@@ -12,27 +12,9 @@
 
 import './../scss/bengor-cookies.scss'
 
-import Cookies from './Cookies';
+import * as BenGorCookies from './Cookies';
 import * as BenGorCookiesRenderers from './Renderers/Renderers';
 import * as BenGorCookiesTemplates from './Templates/Templates';
-
-const BenGorCookies = (options) => {
-  const cookies = new Cookies(options);
-
-  window.addEventListener('scroll', () => {
-    window.requestAnimationFrame(() => {
-      cookies.scrollingAccept();
-    });
-  });
-
-  cookies.show();
-  const elements = document.querySelectorAll(cookies.getLinks());
-  for (let i = 0, iLen = elements.length; i < iLen; i++) {
-    elements[i].addEventListener('click', () => {
-      cookies.accept();
-    });
-  }
-};
 
 export {
   BenGorCookies,
