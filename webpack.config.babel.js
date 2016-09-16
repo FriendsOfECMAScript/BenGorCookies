@@ -18,7 +18,7 @@ import precss from 'precss';
 const include = join(__dirname, 'src');
 
 export default {
-  entry: './src/js/index',
+  entry: './src/js/umd',
   output: {
     path: join(__dirname, 'dist'),
     libraryTarget: 'umd',
@@ -51,4 +51,4 @@ export default {
   plugins: [
     new ExtractTextPlugin('./../dist/bengor-cookies.min.css')
   ]
-}
+};
