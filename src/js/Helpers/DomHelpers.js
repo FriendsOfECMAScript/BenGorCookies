@@ -24,3 +24,8 @@ export function removeClass(element, className) {
     element.className = element.className.replace(reg, ' ');
   }
 }
+
+export function prepend(element, content, evalContent = false) {
+  element.insertBefore(content, element.firstChild);
+  false === evalContent ? eval(element.firstChild) : eval(evalContent);
+}
