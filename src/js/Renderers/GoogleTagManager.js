@@ -33,6 +33,12 @@ class GoogleTagManager {
 
     const body = document.getElementsByTagName('BODY')[0];
     body.insertBefore(this.element, body.firstChild);
+
+    const
+      insertedScript = body.firstChild,
+      script = insertedScript.querySelector('script').innerHTML;
+
+    eval(script);
   }
 }
 

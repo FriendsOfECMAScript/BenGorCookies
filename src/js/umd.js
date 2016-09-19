@@ -10,14 +10,8 @@
 
 'use strict';
 
-import './../scss/bengor-cookies.scss'
+import {BenGorCookies, BenGorCookiesRenderers, BenGorCookiesTemplates} from './index';
 
-import Cookies from './Cookies';
-import * as BenGorCookiesRenderers from './Renderers/Renderers';
-import * as BenGorCookiesTemplates from './Templates/Templates';
-
-export {
-  Cookies as BenGorCookies,
-  BenGorCookiesRenderers,
-  BenGorCookiesTemplates
-};
+window.BenGorCookies = BenGorCookies;
+window.BenGorCookiesRenderers = BenGorCookiesRenderers;
+window.BenGorCookiesTemplates = BenGorCookiesTemplates;
