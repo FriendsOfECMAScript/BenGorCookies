@@ -17,38 +17,48 @@ import precss from 'precss';
 
 const include = join(__dirname, 'src');
 
-export default {
-  entry: './src/js/umd',
-  output: {
-    path: join(__dirname, 'dist'),
-    libraryTarget: 'umd',
-    library: 'bengor-cookies'
-  },
-  devtool: 'source-map',
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        include
-      },
-      {
-        test: /\.(s?css)$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader'),
-        include
-      }
+const isUmd = (options) => {
+  return typeof options !== 'undefined'
+    && typeof options.libraryTarget !== 'undefined'
+    && options.libraryTarget === 'umd';
+};
+
+export default (options) => {
+  return {
+    entry: isUmd(options) ? './src/js/umd' : './src/js/index',
+    output: {
+      path: join(__dirname, 'dist'),
+      libraryTarget: isUmd(options) ? 'umd' : 'commonjs',
+    },
+    devtool: 'source-map',
+    module: {
+      loaders: [
+        {
+          test: /\.js$/,
+          loader: 'babel',
+          include
+        },
+        {
+          test: /\.(s?css)$/,
+          loader: ExtractTextPlugin.extract({
+            fallbackLoader: 'style-loader',
+            loader: 'css-loader!postcss-loader!sass-loader'
+          }),
+          include
+        }
+      ]
+    },
+    postcss: [
+      autoprefixer({
+        browsers: ['last 2 versions']
+      }),
+      precss
+    ],
+    sassLoader: {
+      includePaths: [join(__dirname, 'src/scss')]
+    },
+    plugins: [
+      new ExtractTextPlugin('./../dist/bengor-cookies.min.css')
     ]
-  },
-  postcss: [
-    autoprefixer({
-      browsers: ['last 2 versions']
-    }),
-    precss
-  ],
-  sassLoader: {
-    includePaths: [join(__dirname, 'src/scss')]
-  },
-  plugins: [
-    new ExtractTextPlugin('./../dist/bengor-cookies.min.css')
-  ]
+  }
 };

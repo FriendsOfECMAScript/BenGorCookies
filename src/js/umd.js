@@ -12,6 +12,6 @@
 
 import {BenGorCookies, BenGorCookiesRenderers, BenGorCookiesTemplates} from './index';
 
-window.BenGorCookies = BenGorCookies.default;
+window.BenGorCookies = BenGorCookies;
 window.BenGorCookiesRenderers = BenGorCookiesRenderers;
 window.BenGorCookiesTemplates = BenGorCookiesTemplates;

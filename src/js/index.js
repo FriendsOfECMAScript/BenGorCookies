@@ -12,12 +12,12 @@
 
 import './../scss/bengor-cookies.scss'
 
-import * as BenGorCookies from './Cookies';
+import Cookies from './Cookies';
 import * as BenGorCookiesRenderers from './Renderers/Renderers';
 import * as BenGorCookiesTemplates from './Templates/Templates';
 
 export {
-  BenGorCookies,
+  Cookies as BenGorCookies,
   BenGorCookiesRenderers,
   BenGorCookiesTemplates
 };

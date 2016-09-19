@@ -17,7 +17,7 @@ class Cookies {
   cookieName = 'bengor-cookie';
 
   constructor({links = '.js-bengor-cookies-accept', maxPageYOffset = false, renderers = [], template = null} = {}) {
-    if(template) {
+    if (template) {
       document.querySelector('body').insertAdjacentHTML('beforeend', template);
     }
 
