@@ -16,7 +16,7 @@ import * as DomHelpers from './Helpers/DomHelpers';
 class Cookies {
   cookieName = 'bengor-cookie';
 
-  constructor({links = '.js-bengor-cookies-accept', maxPageYOffset = false, plugins = [], template = null} = {}) {
+  constructor({links = 'html', maxPageYOffset = false, plugins = [], template = null} = {}) {
     if (template) {
       document.querySelector('body').insertAdjacentHTML('beforeend', template);
     }

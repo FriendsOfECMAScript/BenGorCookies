@@ -43,7 +43,7 @@ import {BenGorCookies, BenGorCookiesRenderers, BenGorCookiesTemplates} from 'ben
 The following code is a fully initialization example code:
 ```js
 new BenGorCookies({
-  links: '.bengor-cookies__actions, .bengor-cookies__button',
+  links: 'html',
   maxPageYOffset: false,
   plugins: [
     new BenGorCookiesRenderers.GoogleTagManager('GTM-XXXXX')
