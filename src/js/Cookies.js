@@ -43,8 +43,8 @@ class Cookies {
     if (!CookieHelpers.get(this.cookieName)) {
       DomHelpers.addClass(this.element, 'bengor-cookies--visible');
     } else {
-      this.plugins.forEach((renderer) => {
-        renderer.render()
+      this.plugins.forEach((plugin) => {
+        plugin.execute()
       });
     }
   }
@@ -52,15 +52,15 @@ class Cookies {
   accept() {
     CookieHelpers.create(this.cookieName, Math.floor((Math.random() * 100000000) + 1), 30);
 
-    this.plugins.forEach((renderer) => {
-      renderer.render()
+    this.plugins.forEach((plugin) => {
+      plugin.execute()
     });
 
     DomHelpers.removeClass(this.element, 'bengor-cookies--visible');
   }
 
   enableScrollAccept() {
-    window.addEventListener('scroll', () => {
+    DomHelpers.one(window, ['scroll', 'mousewheel'], () => {
       window.requestAnimationFrame(() => {
         if (window.pageYOffset > this.maxPageYOffset) {
           this.accept();
@@ -72,7 +72,7 @@ class Cookies {
   enableClickAccept() {
     const elements = document.querySelectorAll(this.links);
     for (let i = 0, iLen = elements.length; i < iLen; i++) {
-      elements[i].addEventListener('click', () => {
+      DomHelpers.one(elements[i], ['click', 'touchstart', 'mousewheel'], () => {
         this.accept();
       });
     }

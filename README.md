@@ -35,7 +35,7 @@ your website Sass workflow.
 
 Also, it supports ES2015 modules so, you can easily import the library in your js instead loading the UMD version in the DOM.
 ```js
-import {BenGorCookies, BenGorCookiesRenderers, BenGorCookiesTemplates} from 'bengor-cookies';
+import {BenGorCookies, BenGorCookiesPlugins, BenGorCookiesTemplates} from 'bengor-cookies';
 
 (...your bengor-cookies initialization);
 ```

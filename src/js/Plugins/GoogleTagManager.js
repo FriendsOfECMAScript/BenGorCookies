@@ -19,7 +19,7 @@ class GoogleTagManager {
     this.element.setAttribute('id', 'bengor-cookies-gtm');
   }
 
-  render() {
+  execute() {
     if (this.id === false || this.element.innerHTML) {
       return;
     }
