@@ -10,8 +10,8 @@
 
 'use strict';
 
-import {BenGorCookies, BenGorCookiesRenderers, BenGorCookiesTemplates} from './index';
+import {BenGorCookies, BenGorCookiesPlugins, BenGorCookiesTemplates} from './index';
 
 window.BenGorCookies = BenGorCookies;
-window.BenGorCookiesRenderers = BenGorCookiesRenderers;
+window.BenGorCookiesPlugins = BenGorCookiesPlugins;
 window.BenGorCookiesTemplates = BenGorCookiesTemplates;

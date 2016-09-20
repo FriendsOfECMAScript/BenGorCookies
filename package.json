@@ -19,7 +19,7 @@
       "homepage": "http://gorkalaucirica.net"
     }
   ],
-  "main": "dist/js/index.js",
+  "main": "dist/bengor-cookies.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/BenGorJS/Cookies"

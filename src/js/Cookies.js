@@ -16,7 +16,7 @@ import * as DomHelpers from './Helpers/DomHelpers';
 class Cookies {
   cookieName = 'bengor-cookie';
 
-  constructor({links = '.js-bengor-cookies-accept', maxPageYOffset = false, renderers = [], template = null} = {}) {
+  constructor({links = '.js-bengor-cookies-accept', maxPageYOffset = false, plugins = [], template = null} = {}) {
     if (template) {
       document.querySelector('body').insertAdjacentHTML('beforeend', template);
     }
@@ -29,7 +29,7 @@ class Cookies {
 
     this.links = links;
     this.maxPageYOffset = maxPageYOffset;
-    this.renderers = renderers;
+    this.plugins = plugins;
 
     if (false !== this.maxPageYOffset) {
       this.enableScrollAccept()
@@ -43,7 +43,7 @@ class Cookies {
     if (!CookieHelpers.get(this.cookieName)) {
       DomHelpers.addClass(this.element, 'bengor-cookies--visible');
     } else {
-      this.renderers.forEach((renderer) => {
+      this.plugins.forEach((renderer) => {
         renderer.render()
       });
     }
@@ -52,7 +52,7 @@ class Cookies {
   accept() {
     CookieHelpers.create(this.cookieName, Math.floor((Math.random() * 100000000) + 1), 30);
 
-    this.renderers.forEach((renderer) => {
+    this.plugins.forEach((renderer) => {
       renderer.render()
     });
 

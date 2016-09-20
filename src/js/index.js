@@ -13,11 +13,11 @@
 import './../scss/bengor-cookies.scss'
 
 import Cookies from './Cookies';
-import * as BenGorCookiesRenderers from './Renderers/Renderers';
+import * as BenGorCookiesPlugins from './Plugins/Plugins';
 import * as BenGorCookiesTemplates from './Templates/Templates';
 
 export {
   Cookies as BenGorCookies,
-  BenGorCookiesRenderers,
+  BenGorCookiesPlugins,
   BenGorCookiesTemplates
 };

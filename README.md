@@ -45,7 +45,7 @@ The following code is a fully initialization example code:
 new BenGorCookies({
   links: '.bengor-cookies__actions, .bengor-cookies__button',
   maxPageYOffset: false,
-  renderers: [
+  plugins: [
     new BenGorCookiesRenderers.GoogleTagManager('GTM-XXXXX')
   ],
   template: BenGorCookiesTemplates.Default({
@@ -62,8 +62,8 @@ options.
 * **links**: string that contains all the selectors and tags that interacts with cookies accepting them.
 * **maxPageYOffset**: by default scroll interaction is disabled. If this value is an integer value, and the window
 scroll-top is higher the cookies will be accepted.
-* **renderers**: array of renderers that adds some concrete logic. For now, the following renderers are available:
-    * *GoogleTagManager*: when the cookies are accepted the GTM snippets will be added after body tag. This renderer
+* **plugins**: array of plugins that adds some concrete logic. For now, the following plugins are available:
+    * *GoogleTagManager*: when the cookies are accepted the GTM snippets will be added after body tag. This plugin
     needs a GTM id passed as argument.
 * **template**: string that contains HTML code printing your cookies component. We provide some predefined templates:
     * *Default*: default HTML template
