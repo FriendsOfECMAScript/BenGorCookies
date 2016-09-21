@@ -10,7 +10,7 @@
 
 'use strict';
 
-import {prepend} from './../Helpers/DomHelpers';
+import * as DomHelpers from './../Helpers/DomHelpers';
 
 class GoogleTagManager {
   constructor(id = false) {
@@ -34,7 +34,7 @@ class GoogleTagManager {
       body = document.getElementsByTagName('BODY')[0];
 
     this.element.innerHTML = `<script>${tagManagerScript}</script>`;
-    prepend(body, this.element, tagManagerScript);
+    DomHelpers.prepend(body, this.element, tagManagerScript);
   }
 }
 

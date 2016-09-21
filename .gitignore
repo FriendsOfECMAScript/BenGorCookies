@@ -7,6 +7,7 @@
 # file that was distributed with this source code.
 
 /bower_components
+/coverage
 /dist
 /node_modules
 /npm-debug.log
