@@ -25,16 +25,14 @@ export function get(name) {
   const cookies = document.cookie.split(';');
 
   name = `${name}=`;
-  for (let i = 0, length = cookies.length; i < length; i++) {
-    let cookie = cookies[i];
-
+  cookies.map((cookie) => {
     while (cookie.charAt(0) == ' ') {
       cookie = cookie.substring(1);
     }
     if (cookie.indexOf(name) == 0) {
       return cookie.substring(name.length, cookie.length);
     }
-  }
+  });
 
   return false;
 }

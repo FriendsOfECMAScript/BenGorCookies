@@ -3,9 +3,7 @@ const render = ({link = '/cookies', linkText = 'Cookies policy', text = '', acce
       <div class="bengor-cookies__content">
           <p class="bengor-cookies__text">
               ${text}
-              <a href="${link}" class="bengor-cookies__link" target="_blank">
-                  ${linkText}
-              </a>.
+              <a href="${link}" class="bengor-cookies__link" target="_blank">${linkText}</a>.
           </p>
       </div>
       <div class="bengor-cookies__actions">

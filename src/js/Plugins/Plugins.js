@@ -10,14 +10,8 @@
 
 'use strict';
 
-import './../scss/bengor-cookies.scss'
-
-import Cookies from './Cookies';
-import * as BenGorCookiesPlugins from './Plugins/Plugins';
-import * as BenGorCookiesTemplates from './Templates/Templates';
+import GoogleTagManager from './GoogleTagManager';
 
 export {
-  Cookies as BenGorCookies,
-  BenGorCookiesPlugins,
-  BenGorCookiesTemplates
+  GoogleTagManager
 };

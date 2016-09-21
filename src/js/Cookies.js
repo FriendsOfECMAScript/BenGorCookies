@@ -14,55 +14,85 @@ import * as CookieHelpers from './Helpers/CookieHelpers';
 import * as DomHelpers from './Helpers/DomHelpers';
 
 class Cookies {
-  constructor({links = '.js-bengor-cookies-accept', maxPageYOffset = false, renderers = [], template = null} = {}) {
-    if(template) {
+  events = ['click', 'touchstart', 'mousewheel'];
+  cookieName = 'bengor-cookie';
+
+  constructor({links = 'html', maxPageYOffset = false, plugins = [], template = null} = {}) {
+    if (template) {
       document.querySelector('body').insertAdjacentHTML('beforeend', template);
     }
-    
+
     this.element = document.querySelector('.js-bengor-cookies');
+    this.links = [...document.querySelectorAll(links)];
 
     if (null === this.element) {
       throw new DOMError('"js-bengor-cookies" class is not added to your cookies element');
     }
-    
-    this.links = links;
+
+    this.scrollMovement = 0;
     this.maxPageYOffset = maxPageYOffset;
-    this.renderers = renderers;
+    this.plugins = plugins;
+
+    if (false !== this.maxPageYOffset) {
+      this.enableInteraction('mousewheel', this.onScrollAccept);
+    }
+
+    this.enableInteraction(['click', 'touchstart'], this.onClickAccept);
+    this.show();
   }
 
-  getLinks() {
-    return this.links;
-  }
+  removeEventListeners = () => {
+    this.events.map((event) => {
+      this.links.map((link) => {
+        link.removeEventListener(event, this.onScrollAccept, true);
+        link.removeEventListener(event, this.onClickAccept, true);
+      })
+    });
+  };
 
-  show() {
-    if (!CookieHelpers.get('username')) {
+  onScrollAccept = (event) => {
+    this.scrollMovement += event.deltaY;
+    if (this.scrollMovement > this.maxPageYOffset) {
+      this.onClickAccept();
+    }
+  };
+
+  onClickAccept = () => {
+    this.accept();
+
+    this.removeEventListeners();
+  };
+
+  enableInteraction = (events, callback) => {
+    if (!(events instanceof Array)) {
+      events = [events];
+    }
+    this.links.map((link) => {
+      events.map((event) => {
+        link.addEventListener(event, callback, true);
+      });
+    });
+  };
+
+  show = () => {
+    if (!CookieHelpers.get(this.cookieName)) {
       DomHelpers.addClass(this.element, 'bengor-cookies--visible');
     } else {
-      this.renderers.forEach((renderer) => {
-        renderer.render()
+      this.plugins.map((plugin) => {
+        plugin.execute()
       });
     }
-  }
+  };
 
-  accept() {
-    CookieHelpers.create('username', Math.floor((Math.random() * 100000000) + 1), 30);
-    
-    this.renderers.forEach((renderer) => {
-      renderer.render()
+  accept = () => {
+    CookieHelpers.create(this.cookieName, Math.floor((Math.random() * 100000000) + 1), 30);
+
+    this.plugins.map((plugin) => {
+      plugin.execute()
     });
 
     DomHelpers.removeClass(this.element, 'bengor-cookies--visible');
-  }
-
-  scrollingAccept() {
-    if (false === this.maxPageYOffset) {
-      return;
-    }
-
-    if (window.pageYOffset > this.maxPageYOffset) {
-      this.accept();
-    }
-  }
+  };
 }
 
 export default Cookies;

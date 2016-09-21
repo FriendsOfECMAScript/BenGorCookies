@@ -1,7 +1,7 @@
 {
   "name": "bengor-cookies",
-  "description": "No dependencies JavaScript library that provided full featured cookies component",
-  "main": "dist/bengor-cookies-min.js",
+  "description": "Cookie warning banner that request user consent, European law compilant. Zero dependencies, fully customizable",
+  "main": "dist/bengor-cookies.js",
   "authors": [
     {
       "name": "Beñat Espiña Diaz",
