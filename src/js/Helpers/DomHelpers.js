@@ -29,9 +29,3 @@ export function prepend(element, content, evalContent = false) {
   element.insertBefore(content, element.firstChild);
   false === evalContent ? eval(element.firstChild) : eval(evalContent);
 }
-
-export function one(element, events, callback) {
-  events.forEach((event) => {
-    element.addEventListener(event, callback, true);
-  });
-}

@@ -23,7 +23,7 @@ class Cookies {
     }
 
     this.element = document.querySelector('.js-bengor-cookies');
-    this.links = document.querySelectorAll(links);
+    this.links = [...document.querySelectorAll(links)];
 
     if (null === this.element) {
       throw new DOMError('"js-bengor-cookies" class is not added to your cookies element');
@@ -42,11 +42,11 @@ class Cookies {
   }
 
   removeEventListeners = () => {
-    this.events.forEach((event) => {
-      for (let i = 0, iLen = this.links.length; i < iLen; i++) {
-        this.links[i].removeEventListener(event, this.onScrollAccept, true);
-        this.links[i].removeEventListener(event, this.onClickAccept, true);
-      }
+    this.events.map((event) => {
+      this.links.map((link) => {
+        link.removeEventListener(event, this.onScrollAccept, true);
+        link.removeEventListener(event, this.onClickAccept, true);
+      })
     });
   };
 
@@ -67,16 +67,18 @@ class Cookies {
     if (!(events instanceof Array)) {
       events = [events];
     }
-    for (let i = 0, iLen = this.links.length; i < iLen; i++) {
-      DomHelpers.one(this.links[i], events, callback);
-    }
+    this.links.map((link) => {
+      events.map((event) => {
+        link.addEventListener(event, callback, true);
+      });
+    });
   };
 
   show = () => {
     if (!CookieHelpers.get(this.cookieName)) {
       DomHelpers.addClass(this.element, 'bengor-cookies--visible');
     } else {
-      this.plugins.forEach((plugin) => {
+      this.plugins.map((plugin) => {
         plugin.execute()
       });
     }
@@ -85,7 +87,7 @@ class Cookies {
   accept = () => {
     CookieHelpers.create(this.cookieName, Math.floor((Math.random() * 100000000) + 1), 30);
 
-    this.plugins.forEach((plugin) => {
+    this.plugins.map((plugin) => {
       plugin.execute()
     });
 
