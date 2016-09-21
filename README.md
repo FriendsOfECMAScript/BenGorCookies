@@ -46,7 +46,7 @@ new BenGorCookies({
   links: 'html',
   maxPageYOffset: false,
   plugins: [
-    new BenGorCookiesRenderers.GoogleTagManager('GTM-XXXXX')
+    new BenGorCookiesPlugins.GoogleTagManager('GTM-XXXXX')
   ],
   template: BenGorCookiesTemplates.Default({
     text: 'We use bengor-cookies to provide a better browsing experience and a more ' +
