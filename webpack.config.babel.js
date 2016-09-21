@@ -14,6 +14,7 @@ import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import {join} from 'path';
 import precss from 'precss';
+import Webpack from 'webpack';
 
 const include = join(__dirname, 'src');
 
@@ -48,17 +49,21 @@ export default (options) => {
         }
       ]
     },
-    postcss: [
-      autoprefixer({
-        browsers: ['last 2 versions']
-      }),
-      precss
-    ],
-    sassLoader: {
-      includePaths: [join(__dirname, 'src/scss')]
-    },
     plugins: [
-      new ExtractTextPlugin('./../dist/bengor-cookies.min.css')
+      new ExtractTextPlugin('./../dist/bengor-cookies.min.css'),
+      new Webpack.LoaderOptionsPlugin({
+        options: {
+          postcss: [
+            autoprefixer({
+              browsers: ['last 2 versions']
+            }),
+            precss
+          ],
+          sassLoader: {
+            includePaths: [join(__dirname, 'src/scss')]
+          },
+        }
+      })
     ]
   }
 };

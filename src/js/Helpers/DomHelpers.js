@@ -34,10 +34,4 @@ export function one(element, events, callback) {
   events.forEach((event) => {
     element.addEventListener(event, callback, true);
   });
-
-  setTimeout(() => {
-    events.forEach((event) => {
-      element.removeEventListener(event, callback, true);
-    });
-  }, 3000);
 }
