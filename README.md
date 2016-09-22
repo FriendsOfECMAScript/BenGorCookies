@@ -43,7 +43,7 @@ import {BenGorCookies, BenGorCookiesPlugins, BenGorCookiesTemplates} from 'bengo
 The following code is a fully initialization example code:
 ```js
 new BenGorCookies({
-  links: 'html',
+  triggers: 'html',
   maxPageYOffset: false,
   plugins: [
     new BenGorCookiesPlugins.GoogleTagManager('GTM-XXXXX')
@@ -59,7 +59,7 @@ new BenGorCookies({
 ##Configuration options
 To load the library check the following code. The example provides default values of `BenGorCookies` configuration
 options.
-* **links**: string that contains all the selectors and tags that interacts with cookies accepting them.
+* **triggers**: string that contains all the selectors and tags that interacts with cookies accepting them.
 * **maxPageYOffset**: by default scroll interaction is disabled. If this value is an integer value, and the window
 scroll-top is higher the cookies will be accepted.
 * **plugins**: array of plugins that adds some concrete logic. For now, the following plugins are available:

@@ -17,13 +17,13 @@ class Cookies {
   events = ['click', 'touchstart', 'mousewheel'];
   cookieName = 'bengor-cookie';
 
-  constructor({links = 'html', maxPageYOffset = false, plugins = [], template = null} = {}) {
+  constructor({triggers = 'html', maxPageYOffset = false, plugins = [], template = null} = {}) {
     if (template) {
       document.querySelector('body').insertAdjacentHTML('beforeend', template);
     }
 
     this.element = document.querySelector('.js-bengor-cookies');
-    this.links = [...document.querySelectorAll(links)];
+    this.triggers = [...document.querySelectorAll(triggers)];
 
     if (null === this.element) {
       throw new DOMError('"js-bengor-cookies" class is not added to your cookies element');
@@ -43,9 +43,9 @@ class Cookies {
 
   removeEventListeners = () => {
     this.events.map((event) => {
-      this.links.map((link) => {
-        link.removeEventListener(event, this.onScrollAccept, true);
-        link.removeEventListener(event, this.onClickAccept, true);
+      this.triggers.map((trigger) => {
+        trigger.removeEventListener(event, this.onScrollAccept, true);
+        trigger.removeEventListener(event, this.onClickAccept, true);
       })
     });
   };
@@ -67,9 +67,9 @@ class Cookies {
     if (!(events instanceof Array)) {
       events = [events];
     }
-    this.links.map((link) => {
+    this.triggers.map((trigger) => {
       events.map((event) => {
-        link.addEventListener(event, callback, true);
+        trigger.addEventListener(event, callback, true);
       });
     });
   };
