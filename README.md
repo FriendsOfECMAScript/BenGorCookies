@@ -49,9 +49,12 @@ new BenGorCookies({
     new BenGorCookiesPlugins.GoogleTagManager('GTM-XXXXX')
   ],
   template: BenGorCookiesTemplates.Default({
+    link: '/cookies',
+    linkText: 'Cookies policy',
     text: 'We use bengor-cookies to provide a better browsing experience and a more ' +
     'personalized service. If you continue browsing, we consider accepting its use. ' +
-    'You can change the settings or get more information by consulting our'
+    'You can change the settings or get more information by consulting our',
+    acceptText: 'Accept'
   })
 });
 ```
