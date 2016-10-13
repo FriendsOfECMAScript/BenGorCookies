@@ -1,6 +1,6 @@
 {
   "name": "bengor-cookies",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "license": "MIT",
   "description": "Cookie warning banner that request user consent, European law compilant. Zero dependencies, fully customizable",
   "keywords": [
@@ -50,6 +50,7 @@
   "devDependencies": {
     "babel-cli": "^6.14.0",
     "babel-loader": "^6.2.5",
+    "babel-polyfill": "^6.16.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-stage-2": "^6.13.0",
     "css-loader": "^0.25.0",

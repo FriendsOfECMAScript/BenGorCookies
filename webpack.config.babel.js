@@ -26,7 +26,10 @@ const isUmd = (options) => {
 
 export default (options) => {
   return {
-    entry: isUmd(options) ? './src/js/umd' : './src/js/index',
+    entry: [
+      'babel-polyfill',
+      isUmd(options) ? './src/js/umd' : './src/js/index',
+    ],
     output: {
       path: join(__dirname, 'dist'),
       libraryTarget: isUmd(options) ? 'umd' : 'commonjs',
