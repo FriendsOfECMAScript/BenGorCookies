@@ -1,0 +1,16 @@
+// This file is part of the BenGorCookies library.
+//
+// (c) Beñat Espiña <benatespina@gmail.com>
+// (c) Gorka Laucirica <gorka.lauzirika@gmail.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+
+$bengor-cookies-background-color: #999 !default;
+$bengor-cookies-color: #fff !default;
+$bengor-cookies-link-color: $bengor-cookies-color !default;
+$bengor-cookies-link-hover-color: darken($bengor-cookies-link-color, 20%) !default;
+$bengor-cookies-button-background-color: darken($bengor-cookies-background-color, 20%) !default;
+$bengor-cookies-button-hover-background-color: darken($bengor-cookies-button-background-color, 20%) !default;
+$bengor-cookies-button-color: $bengor-cookies-color !default;
+$bengor-cookies-content-max-width: 850px !default;

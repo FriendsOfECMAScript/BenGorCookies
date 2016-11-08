@@ -18,15 +18,28 @@ import Webpack from 'webpack';
 
 const include = join(__dirname, 'src');
 
-const isUmd = (options) => {
-  return typeof options !== 'undefined'
-    && typeof options.libraryTarget !== 'undefined'
-    && options.libraryTarget === 'umd';
+const
+  isLibreryTarget = (options, target) => {
+    return typeof options !== 'undefined'
+      && typeof options.libraryTarget !== 'undefined'
+      && options.libraryTarget === target;
+  },
+  isIe9 = (options) => {
+    return isLibreryTarget(options, 'ie9');
+  },
+  isUmd = (options) => {
+    return isLibreryTarget(options, 'umd');
+  };
+
+const entry = (options) => {
+  return isIe9(options)
+    ? {'bengor-cookies-ie9': './src/js/ie9'}
+    : {'bengor-cookies': isUmd(options) ? './src/js/umd' : './src/js/index'};
 };
 
 export default (options) => {
   return {
-    entry: isUmd(options) ? './src/js/umd' : './src/js/index',
+    entry: entry(options),
     output: {
       path: join(__dirname, 'dist'),
       libraryTarget: isUmd(options) ? 'umd' : 'commonjs',
@@ -50,7 +63,7 @@ export default (options) => {
       ]
     },
     plugins: [
-      new ExtractTextPlugin('./../dist/bengor-cookies.min.css'),
+      new ExtractTextPlugin('./../dist/[name].min.css'),
       new Webpack.LoaderOptionsPlugin({
         options: {
           postcss: [

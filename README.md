@@ -1,5 +1,6 @@
 #BenGorCookies
-> Cookie warning banner that request user consent, European law compilant. Zero dependencies, fully customizable
+> Cookie warning banner that request user consent, European law compilant.
+Zero dependencies, fully customizable JavaScript library for [IE9+](#browser-support).
 
 [![npm version](https://img.shields.io/npm/v/bengor-cookies.svg?style=flat-square)](https://www.npmjs.com/package/bengor-cookies)
 [![Build Status](http://img.shields.io/travis/BenGorJS/Cookies/master.svg?style=flat-square)](https://travis-ci.org/BenGorJS/Cookies)
@@ -95,6 +96,38 @@ $bengor-cookies-button-color: $bengor-cookies-color !default;
 $bengor-cookies-content-max-width: 850px !default;
 
 @import 'your/node_modules/root/path/bengor-cookies/src/scss/bengor-cookies';
+```
+
+##Browser Support
+**BenGorCookies supports all modern browsers and IE9+.**
+
+The library uses the last CSS features like **flexbox** to build the component in an easy and clean way.
+However, sometimes our project must run in legacy browsers so, keeping this limitation in mind,
+the package provides an alternative of `BenGorCookiesTemplates.Default` and its corresponding *scss* file.
+
+To make work you only have to pass the `BenGorCookiesTemplates.Ie9` instance inside `template` option
+instead of the default.
+```js
+new BenGorCookies({
+  (...)
+
+  template: BenGorCookiesTemplates.Ie9({
+    link: '/cookies',
+    linkText: 'Cookies policy',
+    text: 'We use bengor-cookies to provide a better browsing experience and a more ' +
+    'personalized service. If you continue browsing, we consider accepting its use. ' +
+    'You can change the settings or get more information by consulting our',
+    acceptText: 'Accept'
+  })
+});
+```
+And you have to updated the inclusion of the CSS:
+```html
+<link href="/your/path/bengor-cookies/dist/bengor-cookies-ie.min.css" type="text/css" rel="stylesheet">
+```
+or in case you are using the Scss file:
+```scss
+@import 'your/node_modules/root/path/bengor-cookies/src/scss/bengor-cookies-ie';
 ```
 
 ##Credits

@@ -10,6 +10,8 @@
 
 'use strict';
 
+import './../scss/bengor-cookies.scss';
+
 import {BenGorCookies, BenGorCookiesPlugins, BenGorCookiesTemplates} from './index';
 
 window.BenGorCookies = BenGorCookies;

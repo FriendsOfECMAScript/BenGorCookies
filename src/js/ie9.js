@@ -10,12 +10,4 @@
 
 'use strict';
 
-import Cookies from './Cookies';
-import * as BenGorCookiesPlugins from './Plugins/Plugins';
-import * as BenGorCookiesTemplates from './Templates/Templates';
-
-export {
-  Cookies as BenGorCookies,
-  BenGorCookiesPlugins,
-  BenGorCookiesTemplates
-};
+import './../scss/bengor-cookies-ie9.scss';

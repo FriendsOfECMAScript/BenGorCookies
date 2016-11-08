@@ -11,7 +11,9 @@
 'use strict';
 
 import Default from './Default';
+import Ie9 from './Ie9';
 
 export {
-  Default
+  Default,
+  Ie9
 };
