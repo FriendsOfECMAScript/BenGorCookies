@@ -130,6 +130,14 @@ or in case you are using the Scss file:
 @import 'your/node_modules/root/path/bengor-cookies/src/scss/bengor-cookies-ie';
 ```
 
+##Thanks
+We need to thank [Mikel Tuesta](https://github.com/mktoast) for his great job **optimizing and
+advising the JavaScript** code with the best practices, and also to thank
+[Aritz Olabarrieta](https://github.com/aritzolaba) for his master class about legacy styling
+that he **makes BenGorCookies compatible with IE9+** browsers.
+
+Sincerely, thank you guys! ;)
+
 ##Credits
 This library is created by:
 >
