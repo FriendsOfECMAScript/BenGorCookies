@@ -19,16 +19,16 @@ import Webpack from 'webpack';
 const include = join(__dirname, 'src');
 
 const
-  isLibreryTarget = (options, target) => {
+  isLibraryTarget = (options, target) => {
     return typeof options !== 'undefined'
       && typeof options.libraryTarget !== 'undefined'
       && options.libraryTarget === target;
   },
   isIe9 = (options) => {
-    return isLibreryTarget(options, 'ie9');
+    return isLibraryTarget(options, 'ie9');
   },
   isUmd = (options) => {
-    return isLibreryTarget(options, 'umd');
+    return isLibraryTarget(options, 'umd');
   };
 
 const entry = (options) => {
