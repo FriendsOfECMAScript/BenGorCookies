@@ -1,6 +1,6 @@
 {
   "name": "bengor-cookies",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "license": "MIT",
   "description": "Cookie warning banner that request user consent, European law compilant. Zero dependencies, fully customizable",
   "keywords": [
