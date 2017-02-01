@@ -56,7 +56,10 @@ new BenGorCookies({
     'personalized service. If you continue browsing, we consider accepting its use. ' +
     'You can change the settings or get more information by consulting our',
     acceptText: 'Accept'
-  })
+  }),
+  onAcceptCallback: function() {
+    console.log('Cookies are now accepted!')
+  }
 });
 ```
 
@@ -71,6 +74,7 @@ scroll-top is higher the cookies will be accepted.
     needs a GTM id passed as argument.
 * **template**: string that contains HTML code printing your cookies component. We provide some predefined templates:
     * *Default*: default HTML template
+* **onAcceptCallback**: function reference that will be called once Cookies are accepted.
 
 > Also, you can add your cookies component HTML code manually, it only has a requirement:<br>
 > it must have a `js-bengor-cookies` class.

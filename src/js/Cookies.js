@@ -17,7 +17,13 @@ class Cookies {
   events = ['click', 'touchstart', 'mousewheel'];
   cookieName = 'bengor-cookie';
 
-  constructor({triggers = 'html', maxPageYOffset = false, plugins = [], template = null} = {}) {
+  constructor({
+    triggers = 'html',
+    maxPageYOffset = false,
+    plugins = [],
+    template = null,
+    onAcceptCallback = () => {}
+  } = {}) {
     if (template) {
       document.querySelector('body').insertAdjacentHTML('beforeend', template);
     }
@@ -32,6 +38,7 @@ class Cookies {
     this.scrollMovement = 0;
     this.maxPageYOffset = maxPageYOffset;
     this.plugins = plugins;
+    this.onAcceptCallback = onAcceptCallback;
 
     if (false !== this.maxPageYOffset) {
       this.enableInteraction('mousewheel', this.onScrollAccept);
@@ -92,6 +99,8 @@ class Cookies {
     });
 
     DomHelpers.removeClass(this.element, 'bengor-cookies--visible');
+
+    this.onAcceptCallback();
   };
 }
 
