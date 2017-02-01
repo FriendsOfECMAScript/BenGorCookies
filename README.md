@@ -14,11 +14,14 @@ repetitive so, keeping in mind this use case BenGorCookies provides a robust and
 cookies component.
 
 ##Installation
-The recommended and the most suitable way to install is through *NPM*.
+The recommended and the most suitable way to install is through *Yarn*.
+```shell
+$ yarn add bengor-cookies
+```
+Or alternatively, through *NPM*.
 ```shell
 $ npm install --save bengor-cookies
 ```
-
 Also, you can install through *Bower*.
 ```shell
 $ bower install --save bengor-cookies
