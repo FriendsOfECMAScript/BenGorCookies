@@ -18,8 +18,11 @@ class Cookies {
   cookieName = 'bengor-cookie';
 
   constructor({
-    triggers = 'html', maxPageYOffset = false, plugins = [], template = null, onAcceptCallback = () => {
-  }
+    triggers = 'html',
+    maxPageYOffset = false,
+    plugins = [],
+    template = null,
+    onAcceptCallback = () => {}
   } = {}) {
     if (template) {
       document.querySelector('body').insertAdjacentHTML('beforeend', template);
