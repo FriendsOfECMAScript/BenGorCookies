@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "build": "node_modules/.bin/webpack",
+    "serve": "node_modules/light-server/bin/light-server -s . -p 7000"
+  },
+  "dependencies": {
+    "bengor-cookies": "^0.8.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "light-server": "^2.2.1",
+    "webpack": "^3.8.1"
+  }
+}

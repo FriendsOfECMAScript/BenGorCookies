@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-import * as DomHelpers from './../Helpers/DomHelpers';
+import * as DomHelpers from './../Helpers/DomHelpers.js';
 
 class GoogleTagManager {
   constructor(id = false) {

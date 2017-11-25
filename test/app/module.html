@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="node_modules/bengor-cookies/dist/bengor-cookies.css"/>
+</head>
+<body>
+<div style="height: 1000px">
+    This layout is used to force the scroll behaviour and test the onScrollAccept method!
+</div>
+<script type=module>
+  import {BenGorCookies, BenGorCookiesPlugins, BenGorCookiesTemplates} from './node_modules/bengor-cookies/dist/bengor-cookies.js';
+
+  new BenGorCookies({
+    triggers: 'html',
+    maxPageYOffset: 400,
+    plugins: [
+      new BenGorCookiesPlugins.GoogleTagManager('GTM-XXXXX')
+    ],
+    template: BenGorCookiesTemplates.Default({
+      link: '/cookies',
+      linkText: 'Cookies policy',
+      text: 'We use bengor-cookies to provide a better browsing experience and a more ' +
+      'personalized service. If you continue browsing, we consider accepting its use. ' +
+      'You can change the settings or get more information by consulting our',
+      acceptText: 'Accept'
+    }),
+    onAcceptCallback: () => {
+      console.log('Cookies are now accepted!')
+    }
+  });
+</script>
+</body>
+</html>

@@ -8,8 +8,8 @@
  * file that was distributed with this source code.
  */
 
-import Default from './Default';
-import Ie9 from './Ie9';
+import Default from './Default.js';
+import Ie9 from './Ie9.js';
 
 export {
   Default,

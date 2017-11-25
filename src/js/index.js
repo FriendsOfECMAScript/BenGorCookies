@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-import Cookies from './Cookies';
-import * as BenGorCookiesPlugins from './Plugins/Plugins';
-import * as BenGorCookiesTemplates from './Templates/Templates';
+import Cookies from './Cookies.js';
+import * as BenGorCookiesPlugins from './Plugins/Plugins.js';
+import * as BenGorCookiesTemplates from './Templates/Templates.js';
 
 export {
   Cookies as BenGorCookies,

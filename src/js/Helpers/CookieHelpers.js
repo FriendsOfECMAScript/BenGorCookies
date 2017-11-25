@@ -22,10 +22,11 @@ export function create(name, value, expirationDays) {
 export function get(name) {
   const cookies = document.cookie.split(';');
   let index = cookies.length;
+  let cookie = '';
 
   name = `${name}=`;
   while (index--) {
-    let cookie = cookies[index];
+    cookie = cookies[index];
 
     while (cookie.charAt(0) == ' ') {
       cookie = cookie.substring(1);

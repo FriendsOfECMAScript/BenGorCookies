@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-import GoogleTagManager from './GoogleTagManager';
+import GoogleTagManager from './GoogleTagManager.js';
 
 export {
   GoogleTagManager

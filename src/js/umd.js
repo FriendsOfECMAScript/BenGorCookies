@@ -10,7 +10,7 @@
 
 import './../scss/bengor-cookies.scss';
 
-import {BenGorCookies, BenGorCookiesPlugins, BenGorCookiesTemplates} from './index';
+import {BenGorCookies, BenGorCookiesPlugins, BenGorCookiesTemplates} from './index.js';
 
 window.BenGorCookies = BenGorCookies;
 window.BenGorCookiesPlugins = BenGorCookiesPlugins;

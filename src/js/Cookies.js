@@ -8,13 +8,10 @@
  * file that was distributed with this source code.
  */
 
-import * as CookieHelpers from './Helpers/CookieHelpers';
-import * as DomHelpers from './Helpers/DomHelpers';
+import * as CookieHelpers from './Helpers/CookieHelpers.js';
+import * as DomHelpers from './Helpers/DomHelpers.js';
 
 class Cookies {
-  events = ['click', 'touchstart', 'mousewheel'];
-  cookieName = 'bengor-cookie';
-
   constructor({
     triggers = 'html',
     maxPageYOffset = false,
@@ -33,10 +30,14 @@ class Cookies {
       throw new DOMError('"js-bengor-cookies" class is not added to your cookies element');
     }
 
+    this.cookieName = 'bengor-cookie';
     this.scrollMovement = 0;
     this.maxPageYOffset = maxPageYOffset;
     this.plugins = plugins;
-    this.onAcceptCallback = onAcceptCallback;
+
+    this.onAcceptCallback = onAcceptCallback.bind(this);
+    this.onClickAccept = this.onClickAccept.bind(this);
+    this.onScrollAccept = this.onScrollAccept.bind(this);
 
     if (false !== this.maxPageYOffset) {
       this.enableInteraction('mousewheel', this.onScrollAccept);
@@ -46,29 +47,29 @@ class Cookies {
     this.show();
   }
 
-  removeEventListeners = () => {
-    this.events.map((event) => {
+  removeEventListeners() {
+    ['click', 'touchstart', 'mousewheel'].map((event) => {
       this.triggers.map((trigger) => {
         trigger.removeEventListener(event, this.onScrollAccept, true);
         trigger.removeEventListener(event, this.onClickAccept, true);
       })
     });
-  };
+  }
 
-  onScrollAccept = (event) => {
+  onScrollAccept(event) {
     this.scrollMovement += event.deltaY;
     if (this.scrollMovement > this.maxPageYOffset) {
       this.onClickAccept();
     }
-  };
+  }
 
-  onClickAccept = () => {
+  onClickAccept() {
     this.accept();
 
     this.removeEventListeners();
-  };
+  }
 
-  enableInteraction = (events, callback) => {
+  enableInteraction(events, callback) {
     if (!(events instanceof Array)) {
       events = [events];
     }
@@ -77,9 +78,9 @@ class Cookies {
         trigger.addEventListener(event, callback, true);
       });
     });
-  };
+  }
 
-  show = () => {
+  show() {
     if (!CookieHelpers.get(this.cookieName)) {
       DomHelpers.addClass(this.element, 'bengor-cookies--visible');
     } else {
@@ -87,9 +88,9 @@ class Cookies {
         plugin.execute()
       });
     }
-  };
+  }
 
-  accept = () => {
+  accept() {
     CookieHelpers.create(this.cookieName, Math.floor((Math.random() * 100000000) + 1), 30);
 
     this.plugins.map((plugin) => {
@@ -99,7 +100,7 @@ class Cookies {
     DomHelpers.removeClass(this.element, 'bengor-cookies--visible');
 
     this.onAcceptCallback();
-  };
+  }
 }
 
 export default Cookies;

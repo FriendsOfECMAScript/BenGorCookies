@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-import autoprefixer from 'autoprefixer';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import {join} from 'path';
-import precss from 'precss';
-import Webpack from 'webpack';
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const precss = require('precss');
+const webpack = require('webpack');
 
-const include = join(__dirname, 'src');
+const include = path.resolve(__dirname, 'src');
 
 const
   isLibraryTarget = (options, target) => {
@@ -24,23 +24,20 @@ const
   },
   isIe9 = (options) => {
     return isLibraryTarget(options, 'ie9');
-  },
-  isUmd = (options) => {
-    return isLibraryTarget(options, 'umd');
   };
 
 const entry = (options) => {
   return isIe9(options)
-    ? {'bengor-cookies-ie9': './src/js/ie9'}
-    : {'bengor-cookies': isUmd(options) ? './src/js/umd' : './src/js/index'};
+    ? {'bengor-cookies.ie9': './src/js/ie9'}
+    : {'bengor-cookies': './src/js/umd'};
 };
 
-export default (options) => {
+module.exports = (options) => {
   return {
     entry: entry(options),
     output: {
       path: join(__dirname, 'dist'),
-      libraryTarget: isUmd(options) ? 'umd' : 'commonjs',
+      libraryTarget: 'umd',
     },
     devtool: 'source-map',
     module: {
@@ -48,7 +45,19 @@ export default (options) => {
         {
           test: /\.js$/,
           loader: 'babel-loader',
-          include
+          include,
+          options: {
+            presets: [
+              [
+                "env",
+                {
+                  "targets": {
+                    "ie": 9,
+                  }
+                }
+              ]
+            ]
+          }
         },
         {
           test: /\.(s?css)$/,
@@ -61,8 +70,22 @@ export default (options) => {
       ]
     },
     plugins: [
-      new ExtractTextPlugin('./../dist/[name].min.css'),
-      new Webpack.LoaderOptionsPlugin({
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false,
+          comparisons: false,
+        },
+        mangle: {
+          safari10: true,
+        },
+        output: {
+          comments: false,
+          ascii_only: true,
+        },
+        sourceMap: true,
+      }),
+      new ExtractTextPlugin('./../dist/[name].css'),
+      new webpack.LoaderOptionsPlugin({
         options: {
           postcss: [
             autoprefixer({
