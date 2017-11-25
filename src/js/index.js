@@ -8,8 +8,6 @@
  * file that was distributed with this source code.
  */
 
-'use strict';
-
 import Cookies from './Cookies';
 import * as BenGorCookiesPlugins from './Plugins/Plugins';
 import * as BenGorCookiesTemplates from './Templates/Templates';

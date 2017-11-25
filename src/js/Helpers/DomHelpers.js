@@ -8,8 +8,6 @@
  * file that was distributed with this source code.
  */
 
-'use strict';
-
 export function hasClass(element, className) {
   return element.className.match(new RegExp(`(\\s|^)${className}(\\s|$)`));
 }

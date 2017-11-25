@@ -8,8 +8,6 @@
  * file that was distributed with this source code.
  */
 
-'use strict';
-
 import * as CookieHelpers from './Helpers/CookieHelpers';
 import * as DomHelpers from './Helpers/DomHelpers';
 

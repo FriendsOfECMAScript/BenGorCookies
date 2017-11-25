@@ -8,8 +8,6 @@
  * file that was distributed with this source code.
  */
 
-'use strict';
-
 export function create(name, value, expirationDays) {
   const date = new Date();
   let expires = 'expires=';

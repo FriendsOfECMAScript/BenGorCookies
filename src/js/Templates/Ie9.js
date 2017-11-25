@@ -1,3 +1,13 @@
+/*
+ * This file is part of the BenGorCookies library.
+ *
+ * (c) Beñat Espiña <benatespina@gmail.com>
+ * (c) Gorka Laucirica <gorka.lauzirika@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 const render = ({link = '/cookies', linkText = 'Cookies policy', text = '', acceptText = 'Accept'} = {}) => (
   `<div class="cookies bengor-cookies js-bengor-cookies">
     <table class="bengor-cookies__content-wrapper" cellpadding="0" cellspacing="0" width="100%">

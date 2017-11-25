@@ -8,6 +8,4 @@
  * file that was distributed with this source code.
  */
 
-'use strict';
-
 import './../scss/bengor-cookies-ie9.scss';
