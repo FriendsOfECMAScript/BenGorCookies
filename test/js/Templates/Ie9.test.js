@@ -8,8 +8,6 @@
  * file that was distributed with this source code.
  */
 
-'use strict';
-
 import Ie9 from './../../../src/js/Templates/Ie9';
 
 test('Renders default template passing custom text', () => {

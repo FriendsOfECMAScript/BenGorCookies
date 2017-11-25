@@ -8,8 +8,6 @@
  * file that was distributed with this source code.
  */
 
-'use strict';
-
 import Default from './../../../src/js/Templates/Default';
 
 test('Renders default template passing custom text', () => {

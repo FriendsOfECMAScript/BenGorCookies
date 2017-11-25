@@ -8,8 +8,6 @@
  * file that was distributed with this source code.
  */
 
-'use strict';
-
 import GoogleTagManager from './../../../src/js/Plugins/GoogleTagManager';
 
 test('GoogleTagManager should not render GTM block when the id is not defined', () => {

@@ -8,8 +8,6 @@
  * file that was distributed with this source code.
  */
 
-'use strict';
-
 import * as DomHelpers from './../../../src/js/Helpers/DomHelpers';
 
 test('should contain the class', () => {
