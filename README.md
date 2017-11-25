@@ -1,4 +1,4 @@
-#BenGorCookies
+# BenGorCookies
 > Cookie warning banner that request user consent, European law compilant.
 Zero dependencies, fully customizable JavaScript library for [IE9+](#browser-support).
 
@@ -13,7 +13,7 @@ Everybody needs the cookies component in his website. Style this element is not 
 repetitive so, keeping in mind this use case BenGorCookies provides a robust and lightweight solution to build
 cookies component.
 
-##Installation
+## Installation
 The recommended and the most suitable way to install is through *Yarn*.
 ```shell
 $ yarn add bengor-cookies
@@ -26,7 +26,6 @@ Also, you can install through *Bower*.
 ```shell
 $ bower install --save bengor-cookies
 ```
-
 
 After installation process, you have to include the js and css files in your html.
 ```html
@@ -66,7 +65,7 @@ new BenGorCookies({
 });
 ```
 
-##Configuration options
+## Configuration options
 To load the library check the following code. The example provides default values of `BenGorCookies` configuration
 options.
 * **triggers**: string that contains all the selectors and tags that interacts with cookies accepting them.
@@ -82,7 +81,7 @@ scroll-top is higher the cookies will be accepted.
 > Also, you can add your cookies component HTML code manually, it only has a requirement:<br>
 > it must have a `js-bengor-cookies` class.
 
-##Extension points
+## Extension points
 Obviously each web needs its theme, so, this library provides some extension points if we are injecting the Sass file
 in the project stylesheets workflow. The following Sass variables are self-explanatory:
 ```scss
@@ -105,7 +104,7 @@ $bengor-cookies-content-max-width: 850px !default;
 @import 'your/node_modules/root/path/bengor-cookies/src/scss/bengor-cookies';
 ```
 
-##Browser Support
+## Browser Support
 **BenGorCookies supports all modern browsers and IE9+.**
 
 The library uses the last CSS features like **flexbox** to build the component in an easy and clean way.
@@ -137,7 +136,7 @@ or in case you are using the Scss file:
 @import 'your/node_modules/root/path/bengor-cookies/src/scss/bengor-cookies-ie';
 ```
 
-##Thanks
+## Thanks
 We need to thank [Mikel Tuesta](https://github.com/mktoast) for his great job **optimizing and
 advising the JavaScript** code with the best practices, and also to thank
 [Aritz Olabarrieta](https://github.com/aritzolaba) for his master class about legacy styling
@@ -145,11 +144,11 @@ that he **makes BenGorCookies compatible with IE9+** browsers.
 
 Sincerely, thank you guys! ;)
 
-##Credits
+## Credits
 This library is created by:
 >
 **@benatespina** - [benatespina@gmail.com](mailto:benatespina@gmail.com)<br>
 **@gorkalaucirica** - [gorka.lauzirika@gmail.com](mailto:gorka.lauzirika@gmail.com)
 
-##Licensing Options
+## Licensing Options
 [![License](https://img.shields.io/badge/License-MIT-yellowgreen.svg?style=flat-square)](https://github.com/BenGorJS/Cookies/blob/master/LICENSE)
