@@ -3,11 +3,11 @@
 Zero dependencies, fully customizable JavaScript library for [IE9+](#browser-support).
 
 [![npm version](https://img.shields.io/npm/v/bengor-cookies.svg?style=flat-square)](https://www.npmjs.com/package/bengor-cookies)
-[![Build Status](http://img.shields.io/travis/BenGorJS/Cookies/master.svg?style=flat-square)](https://travis-ci.org/BenGorJS/Cookies)
+[![Build Status](http://img.shields.io/travis/FriendsOfECMAScript/BenGorCookies/master.svg?style=flat-square)](https://travis-ci.org/FriendsOfECMAScript/BenGorCookies)
 [![NPM Status](http://img.shields.io/npm/dm/bengor-cookies.svg?style=flat-square)](https://www.npmjs.org/package/bengor-cookies)
-[![devDependency Status](https://img.shields.io/david/BenGorJS/Cookies.svg?style=flat-square)](https://david-dm.org/BenGorJS/Cookies#info=dependencies)
+[![devDependency Status](https://img.shields.io/david/FriendsOfECMAScript/BenGorCookies.svg?style=flat-square)](https://david-dm.org/FriendsOfECMAScript/BenGorCookies#info=dependencies)
 
-![Snapshot](https://raw.githubusercontent.com/BenGorJS/Cookies/master/snapshot.png)
+![Snapshot](https://raw.githubusercontent.com/FriendsOfECMAScript/BenGorCookies/master/snapshot.png)
 
 Everybody needs the cookies component in his website. Style this element is not very complex but the task is quite
 repetitive so, keeping in mind this use case BenGorCookies provides a robust and lightweight solution to build
@@ -151,4 +151,4 @@ This library is created by:
 **@gorkalaucirica** - [gorka.lauzirika@gmail.com](mailto:gorka.lauzirika@gmail.com)
 
 ## Licensing Options
-[![License](https://img.shields.io/badge/License-MIT-yellowgreen.svg?style=flat-square)](https://github.com/BenGorJS/Cookies/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-yellowgreen.svg?style=flat-square)](https://github.com/FriendsOfECMAScript/BenGorCookies/blob/master/LICENSE)

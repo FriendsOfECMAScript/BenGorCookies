@@ -4,8 +4,9 @@
   "license": "MIT",
   "description": "Cookie warning banner that request user consent, European law compilant. Zero dependencies, fully customizable",
   "keywords": [
-    "bengor",
-    "cookies"
+    "banner",
+    "cookies",
+    "gtm"
   ],
   "authors": [
     {
@@ -22,10 +23,10 @@
   "main": "dist/bengor-cookies.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BenGorJS/Cookies"
+    "url": "https://github.com/FriendsOfECMAScript/BenGorCookies"
   },
   "bugs": {
-    "url": "https://github.com/BenGorJS/Cookies/issues"
+    "url": "https://github.com/FriendsOfECMAScript/BenGorCookies/issues"
   },
   "scripts": {
     "test": "jest",

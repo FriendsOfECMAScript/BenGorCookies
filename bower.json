@@ -16,8 +16,9 @@
   ],
   "license": "MIT",
   "keywords": [
-    "bengor",
-    "cookies"
+    "banner",
+    "cookies",
+    "gtm"
   ],
-  "homepage": "https://github.com/BenGorJS/Cookies"
+  "homepage": "https://github.com/FriendsOfECMAScript/BenGorCookies"
 }
