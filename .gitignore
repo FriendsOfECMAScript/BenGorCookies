@@ -11,7 +11,10 @@
 /dist
 /node_modules
 /npm-debug.log
+/package-lock.json
 /test/app/node_modules
 /test/app/npm-debug.log
+/test/app/yarn-error.log
 /test/app/yarn.lock
+/yarn-error.log
 /yarn.lock
