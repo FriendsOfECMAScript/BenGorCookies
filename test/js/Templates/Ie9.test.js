@@ -11,7 +11,7 @@
 import Ie9 from './../../../src/js/Templates/Ie9.js';
 
 test('Renders default template passing custom text', () => {
-  expect(Ie9({text: 'This is a test cookies'})).toBe((
+  expect(Ie9({text: 'This is a test cookies'})).toBe(
     `<div class="cookies bengor-cookies js-bengor-cookies">
     <table class="bengor-cookies__content-wrapper" cellpadding="0" cellspacing="0" width="100%">
         <tr>
@@ -26,6 +26,6 @@ test('Renders default template passing custom text', () => {
             </td>
         </tr>
     </table>
-</div>`
-  ));
+</div>`,
+  );
 });

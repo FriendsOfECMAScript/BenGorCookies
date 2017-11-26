@@ -32,12 +32,12 @@ test('GoogleTagManager should render GTM block when the id is defined', () => {
   expect(document.getElementById('bengor-cookies-gtm').parentNode.nodeName).toBe('BODY');
 
   expect(document.getElementById('bengor-cookies-gtm').innerHTML).toBe(
-    '<script src=\"//www.googletagmanager.com/gtm.js?id=gtm-id\"></script>' +
-    '<script src=\"//www.googletagmanager.com/gtm.js?id=gtm-id\"></script>' +
-    '<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\"gtm.start\":' +
-    'new Date().getTime(),event:\"gtm.js\"});var f=d.getElementsByTagName(s)[0],' +
-    'j=d.createElement(s),dl=l!=\"dataLayer\"?\"&l=\"+l:\"\";j.async=true;' +
-    'j.src=\"//www.googletagmanager.com/gtm.js?id=\"+i+dl;f.parentNode.insertBefore(j,f);' +
-    '})(window,document,\"script\",\"dataLayer\",\"gtm-id\");</script>',
+    '<script src="//www.googletagmanager.com/gtm.js?id=gtm-id"></script>' +
+      '<script src="//www.googletagmanager.com/gtm.js?id=gtm-id"></script>' +
+      '<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":' +
+      'new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],' +
+      'j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;' +
+      'j.src="//www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);' +
+      '})(window,document,"script","dataLayer","gtm-id");</script>',
   );
 });

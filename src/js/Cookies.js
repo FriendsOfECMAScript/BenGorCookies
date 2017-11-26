@@ -12,13 +12,9 @@ import * as CookieHelpers from './Helpers/CookieHelpers.js';
 import * as DomHelpers from './Helpers/DomHelpers.js';
 
 class Cookies {
-  constructor({
-    triggers = 'html',
-    maxPageYOffset = false,
-    plugins = [],
-    template = null,
-    onAcceptCallback = () => {}
-  } = {}) {
+  constructor(
+    {triggers = 'html', maxPageYOffset = false, plugins = [], template = null, onAcceptCallback = () => {}} = {},
+  ) {
     this.triggers = [...document.querySelectorAll(triggers)];
     this.cookieName = 'bengor-cookie';
     this.scrollMovement = 0;
@@ -75,7 +71,7 @@ class Cookies {
   }
 
   accept() {
-    CookieHelpers.create(this.cookieName, Math.floor((Math.random() * 100000000) + 1), 30);
+    CookieHelpers.create(this.cookieName, Math.floor(Math.random() * 100000000 + 1), 30);
     this.plugins.map(plugin => plugin.execute());
     DomHelpers.removeClass(this.element, 'bengor-cookies--visible');
     this.onAcceptCallback();
@@ -86,7 +82,7 @@ class Cookies {
       this.triggers.map(trigger => {
         trigger.removeEventListener(event, this.onScrollAccept, true);
         trigger.removeEventListener(event, this.onClickAccept, true);
-      })
+      }),
     );
   }
 

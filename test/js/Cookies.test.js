@@ -19,7 +19,7 @@ import {get, create} from './../../src/js/Helpers/CookieHelpers.js';
 
 let eventListeners = [];
 const addEventListener = EventTarget.prototype.addEventListener;
-EventTarget.prototype.addEventListener = function (type, fn, capture) {
+EventTarget.prototype.addEventListener = function(type, fn, capture) {
   this.f = addEventListener;
   this.f(type, fn, capture);
   if (this.nodeName === 'HTML') {
@@ -27,17 +27,15 @@ EventTarget.prototype.addEventListener = function (type, fn, capture) {
   }
 };
 const removeEventListener = EventTarget.prototype.addEventListener;
-EventTarget.prototype.removeEventListener = function (type, fn, capture) {
+EventTarget.prototype.removeEventListener = function(type, fn, capture) {
   this.f = removeEventListener;
   this.f(type, fn, capture);
-  eventListeners = eventListeners.filter(item => item !== type)
+  eventListeners = eventListeners.filter(item => item !== type);
 };
 
 beforeEach(() => {
   document.cookie.split(';').forEach(cookie => {
-    document.cookie = cookie
-      .replace(/^ +/, '')
-      .replace(/=.*/, '=;expires=' + new Date().toUTCString() + ';path=/');
+    document.cookie = cookie.replace(/^ +/, '').replace(/=.*/, '=;expires=' + new Date().toUTCString() + ';path=/');
   });
 
   const dummyNode = document.querySelector('.dummy');
@@ -51,9 +49,12 @@ test('should not create cookies without template', () => {
 });
 
 test('should not create cookies with a template that does not have ".js-bengor-cookies" DOM node', () => {
-  expect(() => new Cookies({
-    template: '<div></div>',
-  })).toThrowError('"js-bengor-cookies" class is not added to your cookies element');
+  expect(
+    () =>
+      new Cookies({
+        template: '<div></div>',
+      }),
+  ).toThrowError('"js-bengor-cookies" class is not added to your cookies element');
 });
 
 test('should not show cookies', () => {
@@ -78,22 +79,21 @@ test('should show cookies', () => {
   expect(document.querySelector('.bengor-cookies--visible')).not.toBeNull();
 });
 test('should accept cookies with a click', () => {
-  create.mockImplementation(() => document.cookie = 'bengor-cookie=testvalue');
+  create.mockImplementation(() => (document.cookie = 'bengor-cookie=testvalue'));
   get.mockReturnValueOnce(false);
   get.mockReturnValue('testvalue');
 
   eventListeners = [];
 
-  const uuid = Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  const uuid = Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
   const instance = new Cookies({
     triggers: 'html',
-    plugins: [
-      new Dummy(),
-    ],
+    plugins: [new Dummy()],
     template: '<div class="js-bengor-cookies"></div>',
     onAcceptCallback: () => {
-      document.querySelector('body')
-        .insertAdjacentHTML('beforeend', `<div id="${uuid}">`)
+      document.querySelector('body').insertAdjacentHTML('beforeend', `<div id="${uuid}">`);
     },
   });
 
@@ -109,23 +109,22 @@ test('should accept cookies with a click', () => {
 });
 
 test('should accept cookies with a scroll', () => {
-  create.mockImplementation(() => document.cookie = 'bengor-cookie=testvalue');
+  create.mockImplementation(() => (document.cookie = 'bengor-cookie=testvalue'));
   get.mockReturnValueOnce(false);
   get.mockReturnValue('testvalue');
 
   eventListeners = [];
 
-  const uuid = Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  const uuid = Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
   const instance = new Cookies({
     triggers: 'html',
     maxPageYOffset: 400,
-    plugins: [
-      new Dummy(),
-    ],
+    plugins: [new Dummy()],
     template: '<div class="js-bengor-cookies"></div>',
     onAcceptCallback: () => {
-      document.querySelector('body')
-        .insertAdjacentHTML('beforeend', `<div id="${uuid}">`)
+      document.querySelector('body').insertAdjacentHTML('beforeend', `<div id="${uuid}">`);
     },
   });
 
@@ -141,23 +140,22 @@ test('should accept cookies with a scroll', () => {
 });
 
 test('should accept cookies with a scroll', () => {
-  create.mockImplementation(() => document.cookie = 'bengor-cookie=testvalue');
+  create.mockImplementation(() => (document.cookie = 'bengor-cookie=testvalue'));
   get.mockReturnValueOnce(false);
   get.mockReturnValue('testvalue');
 
   eventListeners = [];
 
-  const uuid = Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  const uuid = Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
   const instance = new Cookies({
     triggers: 'html',
     maxPageYOffset: 400,
-    plugins: [
-      new Dummy(),
-    ],
+    plugins: [new Dummy()],
     template: '<div class="js-bengor-cookies"></div>',
     onAcceptCallback: () => {
-      document.querySelector('body')
-        .insertAdjacentHTML('beforeend', `<div id="${uuid}">`)
+      document.querySelector('body').insertAdjacentHTML('beforeend', `<div id="${uuid}">`);
     },
   });
 

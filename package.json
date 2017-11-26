@@ -34,7 +34,8 @@
     "build": "npm-run-all --parallel build:*",
     "build:main": "node_modules/.bin/babel src/js -d dist --ignore umd.js && rename dist/index.js bengor-cookies.js",
     "build:umd": "node_modules/.bin/webpack --output-filename bengor-cookies.umd.js --env.libraryTarget umd -p ",
-    "build:ie": "node_modules/.bin/webpack --output-filename bengor-cookies.ie9.js --env.libraryTarget ie9 && node_modules/.bin/rimraf dist/bengor-cookies.ie9.j*"
+    "build:ie": "node_modules/.bin/webpack --output-filename bengor-cookies.ie9.js --env.libraryTarget ie9 && node_modules/.bin/rimraf dist/bengor-cookies.ie9.j*",
+    "prettier": "node_modules/.bin/prettier 'src/js/**/*.js' 'test/**/*.js' --write --single-quote --no-bracket-spacing --trailing-comma all --print-width 120"
   },
   "files": [
     "dist",
@@ -83,6 +84,7 @@
     "postcss-cssnext": "^3.0.2",
     "postcss-loader": "^2.0.9",
     "precss": "^2.0.0",
+    "prettier": "^1.8.2",
     "rename-cli": "^5.0.0",
     "rimraf": "^2.5.4",
     "sass-loader": "^6.0.6",

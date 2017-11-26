@@ -10,6 +10,4 @@
 
 import GoogleTagManager from './GoogleTagManager.js';
 
-export {
-  GoogleTagManager
-};
+export {GoogleTagManager};

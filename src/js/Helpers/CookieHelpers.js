@@ -12,11 +12,11 @@ export function create(name, value, expirationDays) {
   const date = new Date();
   let expires = 'expires=';
 
-  date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+  date.setTime(date.getTime() + expirationDays * 24 * 60 * 60 * 1000);
   expires += date.toGMTString();
-  document.cookie = name + '=' + value + '; ' + expires + '; ' +
-    location.hostname.split('.').reverse()[1] + '.' +
-    location.hostname.split('.').reverse()[0] + '; path=/';
+  document.cookie = `${name}=${value};${expires};${location.hostname.split('.').reverse()[1]}.${
+    location.hostname.split('.').reverse()[0]
+  }; path=/`;
 }
 
 export function get(name) {

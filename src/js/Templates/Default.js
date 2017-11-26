@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-const render = ({link = '/cookies', linkText = 'Cookies policy', text = '', acceptText = 'Accept'} = {}) => (
+const render = ({link = '/cookies', linkText = 'Cookies policy', text = '', acceptText = 'Accept'} = {}) =>
   `<div class="bengor-cookies js-bengor-cookies">
       <div class="bengor-cookies__content">
           <p class="bengor-cookies__text">
@@ -19,7 +19,6 @@ const render = ({link = '/cookies', linkText = 'Cookies policy', text = '', acce
       <div class="bengor-cookies__actions">
           <a class="bengor-cookies__button js-bengor-cookies-accept">${acceptText}</a>
       </div>
-  </div>`
-);
+  </div>`;
 
 export default render;

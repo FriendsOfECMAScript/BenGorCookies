@@ -12,8 +12,4 @@ import Cookies from './Cookies.js';
 import * as BenGorCookiesPlugins from './Plugins/Plugins.js';
 import * as BenGorCookiesTemplates from './Templates/Templates.js';
 
-export {
-  Cookies as BenGorCookies,
-  BenGorCookiesPlugins,
-  BenGorCookiesTemplates
-};
+export {Cookies as BenGorCookies, BenGorCookiesPlugins, BenGorCookiesTemplates};

@@ -29,8 +29,8 @@ module.exports = {
             [
               'env',
               {
-                'targets': {
-                  'ie': 9,
+                targets: {
+                  ie: 9,
                 },
               },
             ],

@@ -11,7 +11,7 @@
 import Default from './../../../src/js/Templates/Default.js';
 
 test('Renders default template passing custom text', () => {
-  expect(Default({text: 'This is a test cookies'})).toBe((
+  expect(Default({text: 'This is a test cookies'})).toBe(
     `<div class="bengor-cookies js-bengor-cookies">
       <div class="bengor-cookies__content">
           <p class="bengor-cookies__text">
@@ -22,6 +22,6 @@ test('Renders default template passing custom text', () => {
       <div class="bengor-cookies__actions">
           <a class="bengor-cookies__button js-bengor-cookies-accept">Accept</a>
       </div>
-  </div>`
-  ));
+  </div>`,
+  );
 });

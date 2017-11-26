@@ -20,6 +20,8 @@ install:
 
 script:
     - npm test -- --coverage
+    - node_modules/.bin/prettier 'src/js/**/*.js' 'test/**/*.js' --list-different --single-quote --no-bracket-spacing --trailing-comma all --print-width 120
+
 
 cache:
     directories:
