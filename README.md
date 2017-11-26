@@ -132,6 +132,23 @@ or in case you are using the Scss file:
 @import 'your/node_modules/root/path/bengor-cookies/src/scss/bengor-cookies-ie9';
 ```
 
+## Contributing
+This library follows the modern JavaScript coding standards, so pull requests need to pass the [Stylelint][1],
+[ESLint][2] and [Prettier][3]. This task can be very boring but, in the `package.json` there are some useful
+npm-scripts that becomes this process simpler and faster.
+```bash
+$ yarn eslint           # or npm run eslint
+$ yarn prettier         # or npm run prettier
+$ yarn stylelint        # or npm run stylelint
+```
+
+There is also a policy for contributing to this library. Pull requests must be explained step by step to make the
+review process easy in order to accept and merge them. New methods or code improvements must come paired with
+tests. We are using [Jest][4] test framework for that purpose.
+```bash
+$ yarn test             # or npm test
+```
+
 ## Thanks
 We need to thank [Mikel Tuesta](https://github.com/mktoast) for his great job **optimizing and
 advising the JavaScript** code with the best practices, and also to thank
@@ -148,3 +165,8 @@ This library is created by:
 
 ## Licensing Options
 [![License](https://img.shields.io/badge/License-MIT-yellowgreen.svg?style=flat-square)](https://github.com/FriendsOfECMAScript/BenGorCookies/blob/master/LICENSE)
+
+[1]: http://stylelint.io/
+[2]: http://eslint.org/
+[3]: https://prettier.io/ 
+[4]: https://facebook.github.io/jest/
