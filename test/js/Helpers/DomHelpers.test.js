@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-import * as DomHelpers from './../../../src/js/Helpers/DomHelpers';
+import * as DomHelpers from './../../../src/js/Helpers/DomHelpers.js';
 
 test('should contain the class', () => {
   expect(DomHelpers.hasClass(document.querySelector('body'), 'this-is-test')).toBeNull();

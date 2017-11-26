@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-jest.mock('./../../src/js/Helpers/CookieHelpers', () => ({
+jest.mock('./../../src/js/Helpers/CookieHelpers.js', () => ({
   get: jest.fn(),
   create: jest.fn(),
 }));
 
-import Cookies from './../../src/js/Cookies';
-import Dummy from './../../src/js/Plugins/Dummy';
-import {get, create} from './../../src/js/Helpers/CookieHelpers';
+import Cookies from './../../src/js/Cookies.js';
+import Dummy from './../../src/js/Plugins/Dummy.js';
+import {get, create} from './../../src/js/Helpers/CookieHelpers.js';
 
 let eventListeners = [];
 const addEventListener = EventTarget.prototype.addEventListener;

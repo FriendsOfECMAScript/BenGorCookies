@@ -16,7 +16,7 @@ class Dummy extends Plugin {
     const body = document.getElementsByTagName('BODY')[0];
     const element = document.createElement('div');
 
-    element.innerHTML = '<div class="dummy"></div>';
+    element.innerHTML = '<div class="dummy">Dummy</div>';
 
     DomHelpers.prepend(body, element);
   }

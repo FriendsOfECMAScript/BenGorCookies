@@ -8,21 +8,27 @@
  * file that was distributed with this source code.
  */
 
-import GoogleTagManager from './../../../src/js/Plugins/GoogleTagManager';
+import GoogleTagManager from './../../../src/js/Plugins/GoogleTagManager.js';
+import Plugin from './../../../src/js/Plugins/Plugin.js';
+
+test('GoogleTagManager should be a "Plugin" instance"', () => {
+  const googleTagManager = new GoogleTagManager();
+
+  expect(googleTagManager).toBeInstanceOf(Plugin);
+});
 
 test('GoogleTagManager should not render GTM block when the id is not defined', () => {
   const googleTagManager = new GoogleTagManager();
-  googleTagManager.execute();
 
+  googleTagManager.execute();
   expect(document.getElementById('bengor-cookies-gtm')).toBeNull();
 });
 
 test('GoogleTagManager should render GTM block when the id is defined', () => {
   const googleTagManager = new GoogleTagManager('gtm-id');
+
+  expect(document.getElementById('bengor-cookies-gtm')).toBeNull();
   googleTagManager.execute();
-
-
-  expect().not.toBe(null);
   expect(document.getElementById('bengor-cookies-gtm').parentNode.nodeName).toBe('BODY');
 
   expect(document.getElementById('bengor-cookies-gtm').innerHTML).toBe(
@@ -32,6 +38,6 @@ test('GoogleTagManager should render GTM block when the id is defined', () => {
     'new Date().getTime(),event:\"gtm.js\"});var f=d.getElementsByTagName(s)[0],' +
     'j=d.createElement(s),dl=l!=\"dataLayer\"?\"&l=\"+l:\"\";j.async=true;' +
     'j.src=\"//www.googletagmanager.com/gtm.js?id=\"+i+dl;f.parentNode.insertBefore(j,f);' +
-    '})(window,document,\"script\",\"dataLayer\",\"gtm-id\");</script>'
+    '})(window,document,\"script\",\"dataLayer\",\"gtm-id\");</script>',
   );
 });

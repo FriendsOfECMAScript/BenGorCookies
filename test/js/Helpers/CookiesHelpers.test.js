@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-import * as CookiesHelpers from './../../../src/js/Helpers/CookieHelpers';
+import * as CookiesHelpers from './../../../src/js/Helpers/CookieHelpers.js';
 
 test('should create the cookie', () => {
   expect(CookiesHelpers.get('bengor-cookie')).toBe(false);

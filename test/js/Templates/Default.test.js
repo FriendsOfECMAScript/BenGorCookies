@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-import Default from './../../../src/js/Templates/Default';
+import Default from './../../../src/js/Templates/Default.js';
 
 test('Renders default template passing custom text', () => {
   expect(Default({text: 'This is a test cookies'})).toBe((
