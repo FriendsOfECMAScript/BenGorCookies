@@ -19,41 +19,52 @@ class Cookies {
     template = null,
     onAcceptCallback = () => {}
   } = {}) {
-    if (template) {
-      document.querySelector('body').insertAdjacentHTML('beforeend', template);
-    }
-
-    this.element = document.querySelector('.js-bengor-cookies');
     this.triggers = [...document.querySelectorAll(triggers)];
-
-    if (null === this.element) {
-      throw new DOMError('"js-bengor-cookies" class is not added to your cookies element');
-    }
-
     this.cookieName = 'bengor-cookie';
     this.scrollMovement = 0;
     this.maxPageYOffset = maxPageYOffset;
     this.plugins = plugins;
 
+    this.injectTemplate(template);
+    this.setDomNode(document.querySelector('.js-bengor-cookies'));
+    this.bindListeners(onAcceptCallback);
+    this.init();
+  }
+
+  injectTemplate(template) {
+    if (template) {
+      document.querySelector('body').insertAdjacentHTML('beforeend', template);
+    }
+  }
+
+  setDomNode(node) {
+    this.checkDomNodeExists(node);
+    this.element = node;
+  }
+
+  checkDomNodeExists(node) {
+    if (null === node) {
+      throw new Error('"js-bengor-cookies" class is not added to your cookies element');
+    }
+  }
+
+  bindListeners(onAcceptCallback) {
     this.onAcceptCallback = onAcceptCallback.bind(this);
     this.onClickAccept = this.onClickAccept.bind(this);
     this.onScrollAccept = this.onScrollAccept.bind(this);
+  }
 
+  init() {
     if (false !== this.maxPageYOffset) {
       this.enableInteraction('mousewheel', this.onScrollAccept);
     }
-
     this.enableInteraction(['click', 'touchstart'], this.onClickAccept);
     this.show();
   }
 
-  removeEventListeners() {
-    ['click', 'touchstart', 'mousewheel'].map((event) => {
-      this.triggers.map((trigger) => {
-        trigger.removeEventListener(event, this.onScrollAccept, true);
-        trigger.removeEventListener(event, this.onClickAccept, true);
-      })
-    });
+  onClickAccept() {
+    this.accept();
+    this.removeEventListeners();
   }
 
   onScrollAccept(event) {
@@ -63,43 +74,33 @@ class Cookies {
     }
   }
 
-  onClickAccept() {
-    this.accept();
+  accept() {
+    CookieHelpers.create(this.cookieName, Math.floor((Math.random() * 100000000) + 1), 30);
+    this.plugins.map(plugin => plugin.execute());
+    DomHelpers.removeClass(this.element, 'bengor-cookies--visible');
+    this.onAcceptCallback();
+  }
 
-    this.removeEventListeners();
+  removeEventListeners() {
+    ['click', 'touchstart', 'mousewheel'].map(event =>
+      this.triggers.map(trigger => {
+        trigger.removeEventListener(event, this.onScrollAccept, true);
+        trigger.removeEventListener(event, this.onClickAccept, true);
+      })
+    );
   }
 
   enableInteraction(events, callback) {
     if (!(events instanceof Array)) {
       events = [events];
     }
-    this.triggers.map((trigger) => {
-      events.map((event) => {
-        trigger.addEventListener(event, callback, true);
-      });
-    });
+    this.triggers.map(trigger => events.map(event => trigger.addEventListener(event, callback, true)));
   }
 
   show() {
-    if (!CookieHelpers.get(this.cookieName)) {
-      DomHelpers.addClass(this.element, 'bengor-cookies--visible');
-    } else {
-      this.plugins.map((plugin) => {
-        plugin.execute()
-      });
-    }
-  }
-
-  accept() {
-    CookieHelpers.create(this.cookieName, Math.floor((Math.random() * 100000000) + 1), 30);
-
-    this.plugins.map((plugin) => {
-      plugin.execute()
-    });
-
-    DomHelpers.removeClass(this.element, 'bengor-cookies--visible');
-
-    this.onAcceptCallback();
+    !CookieHelpers.get(this.cookieName)
+      ? DomHelpers.addClass(this.element, 'bengor-cookies--visible')
+      : this.plugins.map(plugin => plugin.execute());
   }
 }
 

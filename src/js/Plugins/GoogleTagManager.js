@@ -9,9 +9,12 @@
  */
 
 import * as DomHelpers from './../Helpers/DomHelpers.js';
+import Plugin from './Plugin.js';
 
-class GoogleTagManager {
+class GoogleTagManager extends Plugin {
   constructor(id = false) {
+    super();
+
     this.id = id;
     this.element = document.createElement('div');
     this.element.setAttribute('id', 'bengor-cookies-gtm');
