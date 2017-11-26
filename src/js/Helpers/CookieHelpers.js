@@ -28,10 +28,10 @@ export function get(name) {
   while (index--) {
     cookie = cookies[index];
 
-    while (cookie.charAt(0) == ' ') {
+    while (cookie.charAt(0) === ' ') {
       cookie = cookie.substring(1);
     }
-    if (cookie.indexOf(name) == 0) {
+    if (parseInt(cookie.indexOf(name), 10) === 0) {
       return cookie.substring(name.length, cookie.length);
     }
   }

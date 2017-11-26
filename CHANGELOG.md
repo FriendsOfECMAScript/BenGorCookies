@@ -6,6 +6,7 @@ To get the diff for a specific change, go to https://github.com/FriendsOfECMAScr
 To get the diff between two versions, go to https://github.com/FriendsOfECMAScript/BenGorCookies/compare/v0.8.0...v0.9.0
 
 * 0.9.0
+    * Removed non strict equals statements from `CookiesHelper.js`.
     * Removed Bower support.
     * Rewritten all the code related to dependencies, webpack and distribution packages generation.
     * Ignored yarn-error.log and package-lock.json files.
