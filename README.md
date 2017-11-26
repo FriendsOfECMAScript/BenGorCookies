@@ -22,10 +22,6 @@ Or alternatively, through *NPM*.
 ```shell
 $ npm install --save bengor-cookies
 ```
-Also, you can install through *Bower*.
-```shell
-$ bower install --save bengor-cookies
-```
 
 After installation process, you have to include the js and css files in your html.
 ```html
