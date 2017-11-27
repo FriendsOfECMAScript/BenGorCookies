@@ -13,7 +13,7 @@ import * as DomHelpers from './Helpers/DomHelpers.js';
 
 class Cookies {
   constructor(
-    {triggers = 'html', maxPageYOffset = false, plugins = [], template = null, onAcceptCallback = () => {}} = {},
+    {triggers = 'html', maxPageYOffset = false, plugins = [], template = null, onAcceptCallback = () => {}} = {}
   ) {
     this.triggers = [...document.querySelectorAll(triggers)];
     this.cookieName = 'bengor-cookie';
@@ -82,7 +82,7 @@ class Cookies {
       this.triggers.map(trigger => {
         trigger.removeEventListener(event, this.onScrollAccept, true);
         trigger.removeEventListener(event, this.onClickAccept, true);
-      }),
+      })
     );
   }
 

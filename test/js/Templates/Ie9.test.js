@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-import Ie9 from './../../../src/js/Templates/Ie9.js';
+import Ie9 from './../../../src/js/Templates/Ie9';
 
 test('Renders default template passing custom text', () => {
   expect(Ie9({text: 'This is a test cookies'})).toBe(
@@ -26,6 +26,6 @@ test('Renders default template passing custom text', () => {
             </td>
         </tr>
     </table>
-</div>`,
+</div>`
   );
 });

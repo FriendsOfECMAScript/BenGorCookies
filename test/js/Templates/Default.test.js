@@ -22,6 +22,6 @@ test('Renders default template passing custom text', () => {
       <div class="bengor-cookies__actions">
           <a class="bengor-cookies__button js-bengor-cookies-accept">Accept</a>
       </div>
-  </div>`,
+  </div>`
   );
 });

@@ -29,8 +29,8 @@
 .bengor-cookies__content-wrapper {
   background: none;
   border: 0;
-  max-width: $bengor-cookies-content-max-width;
   margin: auto;
+  max-width: $bengor-cookies-content-max-width;
 }
 
 .bengor-cookies__actions,
@@ -43,9 +43,9 @@
 }
 
 .bengor-cookies__text {
-  text-align: center;
   line-height: 22px;
   margin: 0;
+  text-align: center;
 }
 
 .bengor-cookies__link {

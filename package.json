@@ -35,7 +35,10 @@
     "build:main": "node_modules/.bin/babel src/js -d dist --ignore umd.js && rename dist/index.js bengor-cookies.js",
     "build:umd": "node_modules/.bin/webpack --output-filename bengor-cookies.umd.js --env.libraryTarget umd -p ",
     "build:ie": "node_modules/.bin/webpack --output-filename bengor-cookies.ie9.js --env.libraryTarget ie9 && node_modules/.bin/rimraf dist/bengor-cookies.ie9.j*",
-    "prettier": "node_modules/.bin/prettier 'src/js/**/*.js' 'test/**/*.js' --write --single-quote --no-bracket-spacing --trailing-comma all --print-width 120"
+    "cs": "npm run prettier && npm run eslint && npm run stylelint",
+    "prettier": "node_modules/.bin/prettier 'src/js/**/*.js' 'test/**/*.js' --write --single-quote --no-bracket-spacing --trailing-comma es5 --print-width 120",
+    "eslint": "node_modules/.bin/eslint -c .eslintrc.js src/js/ test/js/",
+    "stylelint": "node_modules/.bin/stylelint -c .stylelintrc.js src/scss/**/*.scss --syntax scss"
   },
   "files": [
     "dist",
@@ -75,6 +78,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-minify": "^0.2.0",
     "css-loader": "^0.28.7",
+    "eslint": "^4.12.0",
+    "eslint-config-prettier": "^2.9.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "jest": "^21.2.1",
     "jsdom": "^11.4.0",
@@ -89,6 +94,10 @@
     "rimraf": "^2.5.4",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
+    "stylelint": "^8.3.1",
+    "stylelint-order": "^0.7.0",
+    "stylelint-scss": "^2.1.0",
+    "stylelint-selector-bem-pattern": "^2.0.0",
     "webpack": "^3.8.1"
   }
 }

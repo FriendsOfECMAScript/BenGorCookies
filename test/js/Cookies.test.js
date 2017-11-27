@@ -53,7 +53,7 @@ test('should not create cookies with a template that does not have ".js-bengor-c
     () =>
       new Cookies({
         template: '<div></div>',
-      }),
+      })
   ).toThrowError('"js-bengor-cookies" class is not added to your cookies element');
 });
 
