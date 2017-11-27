@@ -132,6 +132,22 @@ or in case you are using the Scss file:
 @import 'your/node_modules/root/path/bengor-cookies/src/scss/bengor-cookies-ie9';
 ```
 
+# Tests
+Apart of the obvious set of tests, this library provides a simple node application to demonstrate the different
+usages about resultant JavaScript.
+```bash
+$ yarn test             # or npm test
+```
+
+To run the demo application you have to type the following:
+```bash
+$ cd test/app
+$ node_modules/light-server/bin/light-server -s . -p 7000
+$ open 127.0.0.1:7000/babel.html
+$ open 127.0.0.1:7000/module.html
+$ open 127.0.0.1:7000/umd.html
+```
+
 ## Contributing
 This library follows the modern JavaScript coding standards, so pull requests need to pass the [Stylelint][1],
 [ESLint][2] and [Prettier][3]. This task can be very boring but, in the `package.json` there are some useful
@@ -141,13 +157,9 @@ $ yarn eslint           # or npm run eslint
 $ yarn prettier         # or npm run prettier
 $ yarn stylelint        # or npm run stylelint
 ```
-
 There is also a policy for contributing to this library. Pull requests must be explained step by step to make the
 review process easy in order to accept and merge them. New methods or code improvements must come paired with
 tests. We are using [Jest][4] test framework for that purpose.
-```bash
-$ yarn test             # or npm test
-```
 
 ## Thanks
 We need to thank [Mikel Tuesta](https://github.com/mktoast) for his great job **optimizing and
