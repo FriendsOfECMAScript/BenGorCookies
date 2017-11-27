@@ -52,7 +52,7 @@ class Cookies {
 
   init() {
     if (false !== this.maxPageYOffset) {
-      this.enableInteraction('mousewheel', this.onScrollAccept);
+      this.enableInteraction('wheel', this.onScrollAccept);
     }
     this.enableInteraction(['click', 'touchstart'], this.onClickAccept);
     this.show();
@@ -78,7 +78,7 @@ class Cookies {
   }
 
   removeEventListeners() {
-    ['click', 'touchstart', 'mousewheel'].map(event =>
+    ['click', 'touchstart', 'wheel'].map(event =>
       this.triggers.map(trigger => {
         trigger.removeEventListener(event, this.onScrollAccept, true);
         trigger.removeEventListener(event, this.onClickAccept, true);

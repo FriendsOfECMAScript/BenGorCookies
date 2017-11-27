@@ -128,12 +128,12 @@ test('should accept cookies with a scroll', () => {
     },
   });
 
-  expect(eventListeners).toEqual(['mousewheel', 'click', 'touchstart']);
+  expect(eventListeners).toEqual(['wheel', 'click', 'touchstart']);
   expect(document.querySelector('.bengor-cookies--visible')).not.toBeNull();
   expect(document.querySelector('.dummy')).toBeNull();
   expect(document.getElementById(uuid)).toBeNull();
   instance.onScrollAccept({deltaY: 400});
-  expect(eventListeners).toEqual(['mousewheel', 'click', 'touchstart']);
+  expect(eventListeners).toEqual(['wheel', 'click', 'touchstart']);
   expect(document.querySelector('.bengor-cookies--visible')).not.toBeNull();
   expect(document.querySelector('.dummy')).toBeNull();
   expect(document.getElementById(uuid)).toBeNull();
@@ -159,7 +159,7 @@ test('should accept cookies with a scroll', () => {
     },
   });
 
-  expect(eventListeners).toEqual(['mousewheel', 'click', 'touchstart']);
+  expect(eventListeners).toEqual(['wheel', 'click', 'touchstart']);
   expect(document.querySelector('.bengor-cookies--visible')).not.toBeNull();
   expect(document.querySelector('.dummy')).toBeNull();
   expect(document.getElementById(uuid)).toBeNull();
