@@ -9,95 +9,103 @@
  */
 
 const autoprefixer = require('autoprefixer');
+const cssNano = require('cssnano');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const precss = require('precss');
 const webpack = require('webpack');
 
-const include = path.resolve(__dirname, 'src');
-
-const
-  isLibraryTarget = (options, target) => {
-    return typeof options !== 'undefined'
-      && typeof options.libraryTarget !== 'undefined'
-      && options.libraryTarget === target;
-  },
-  isIe9 = (options) => {
-    return isLibraryTarget(options, 'ie9');
-  };
-
-const entry = (options) => {
-  return isIe9(options)
-    ? {'bengor-cookies.ie9': './src/js/ie9'}
-    : {'bengor-cookies': './src/js/umd'};
-};
-
-module.exports = (options) => {
-  return {
-    entry: entry(options),
-    output: {
-      path: path.resolve(__dirname, 'dist'),
-      libraryTarget: 'umd',
-    },
-    devtool: 'source-map',
-    module: {
-      loaders: [
-        {
-          test: /\.js$/,
-          loader: 'babel-loader',
-          include,
-          options: {
-            presets: [
-              [
-                "env",
-                {
-                  "targets": {
-                    "ie": 9,
-                  }
-                }
-              ]
-            ]
-          }
-        },
-        {
-          test: /\.(s?css)$/,
-          loader: ExtractTextPlugin.extract({
-            fallbackLoader: 'style-loader',
-            loader: 'css-loader!postcss-loader!sass-loader'
-          }),
-          include
-        }
-      ]
-    },
-    plugins: [
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false,
-          comparisons: false,
-        },
-        mangle: {
-          safari10: true,
-        },
-        output: {
-          comments: false,
-          ascii_only: true,
-        },
-        sourceMap: true,
-      }),
-      new ExtractTextPlugin('./../dist/[name].css'),
-      new webpack.LoaderOptionsPlugin({
+const config = {
+  devtool: 'source-map',
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        include: path.resolve(__dirname, 'src'),
         options: {
-          postcss: [
-            autoprefixer({
-              browsers: ['last 2 versions']
-            }),
-            precss
+          presets: [
+            [
+              'env',
+              {
+                'targets': {
+                  'ie': 9,
+                },
+              },
+            ],
           ],
-          sassLoader: {
-            includePaths: [path.resolve(__dirname, 'src/scss')]
-          },
-        }
-      })
-    ]
-  }
+        },
+      },
+      {
+        test: /\.(s?css)$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: (loader) => [
+                  autoprefixer({browsers: ['last 2 versions']}),
+                  cssNano(),
+                  precss(),
+                ],
+              },
+            },
+            {
+              loader: 'sass-loader',
+            },
+          ],
+        }),
+        include: path.resolve(__dirname, 'src'),
+      },
+    ],
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        comparisons: false,
+      },
+      mangle: {
+        safari10: true,
+      },
+      output: {
+        comments: false,
+        ascii_only: true,
+      },
+      sourceMap: true,
+    }),
+    new ExtractTextPlugin('./../dist/[name].css'),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        sassLoader: {
+          includePaths: [path.resolve(__dirname, 'src/scss')],
+        },
+      },
+    }),
+  ],
 };
+
+module.exports = [Object.assign({
+  entry: {
+    'bengor-cookies.ie9': './src/js/ie9.js',
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bengor-cookies.ie9.js',
+    libraryTarget: 'umd',
+  },
+}, config), Object.assign({
+  entry: {
+    'bengor-cookies': './src/js/umd.js',
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bengor-cookies.umd.js',
+    libraryTarget: 'umd',
+  },
+}, config)];
