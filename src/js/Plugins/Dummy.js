@@ -13,12 +13,11 @@ import Plugin from './Plugin.js';
 
 class Dummy extends Plugin {
   execute() {
-    const body = document.getElementsByTagName('BODY')[0];
     const element = document.createElement('div');
 
     element.innerHTML = '<div class="dummy">Dummy</div>';
 
-    DomHelpers.prepend(body, element);
+    DomHelpers.prepend(document.body, element);
   }
 }
 

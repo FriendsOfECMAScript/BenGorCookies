@@ -36,7 +36,7 @@ module.exports = (options) => {
   return {
     entry: entry(options),
     output: {
-      path: join(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'dist'),
       libraryTarget: 'umd',
     },
     devtool: 'source-map',
@@ -94,7 +94,7 @@ module.exports = (options) => {
             precss
           ],
           sassLoader: {
-            includePaths: [join(__dirname, 'src/scss')]
+            includePaths: [path.resolve(__dirname, 'src/scss')]
           },
         }
       })
