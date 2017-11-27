@@ -60,7 +60,7 @@ height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></nos
   j.src="//www.googletagmanager.com/gtm.js?id="+i+dl;
   f.parentNode.insertBefore(j,f);
 })(window,document,"script","dataLayer","gtm-id");
-</script>`,
+</script>`
   );
 });
 
@@ -87,6 +87,6 @@ height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></nos
   j.src="//www.googletagmanager.com/gtm.js?id="+i+dl+"&gtm_auth=auth-id&gtm_preview=preview&gtm_cookies_win=x";
   f.parentNode.insertBefore(j,f);
 })(window,document,"script","dataLayer","gtm-id");
-</script>`,
+</script>`
   );
 });
