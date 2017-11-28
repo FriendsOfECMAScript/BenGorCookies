@@ -113,8 +113,16 @@ $bengor-cookies-z-index: 1000 !default;
 
 ## Modern theme
 At the beginning of the document, two images are shown. If we like to implement the second one we need to include the
-`<link href="/your/path/bengor-cookies/dist/bengor-cookies.modern.css" type="text/css" rel="stylesheet">` CSS or use
-`@import 'your/node_modules/root/path/bengor-cookies/src/scss/bengor-cookies-modern';` Sass import.
+following CSS import:
+```html
+<link href="/your/path/bengor-cookies/dist/bengor-cookies.modern.css" type="text/css" rel="stylesheet">
+```
+
+Or you can use the Sass imports:
+```scss
+@import 'your/node_modules/root/path/bengor-cookies/src/scss/bengor-cookies-modern';
+```
+
 However, with only this step you can't obtain the same result of the image so, if you have a really special interest
 in getting the same banner you have to the following.
 
