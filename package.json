@@ -43,7 +43,8 @@
     "dist",
     "src/scss",
     "README.md",
-    "snapshot.png"
+    "snapshot.png",
+    "snapshot2.png"
   ],
   "babel": {
     "presets": [
