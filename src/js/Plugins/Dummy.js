@@ -8,7 +8,6 @@
  * file that was distributed with this source code.
  */
 
-import * as DomHelpers from './../Helpers/DomHelpers.js';
 import Plugin from './Plugin.js';
 
 class Dummy extends Plugin {
@@ -17,7 +16,7 @@ class Dummy extends Plugin {
 
     element.innerHTML = '<div class="dummy">Dummy</div>';
 
-    DomHelpers.prepend(document.body, element);
+    document.body.appendChild(element);
   }
 }
 

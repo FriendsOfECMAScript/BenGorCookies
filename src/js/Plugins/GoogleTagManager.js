@@ -8,7 +8,6 @@
  * file that was distributed with this source code.
  */
 
-import * as DomHelpers from './../Helpers/DomHelpers.js';
 import Plugin from './Plugin.js';
 
 class GoogleTagManager extends Plugin {
@@ -66,7 +65,7 @@ class GoogleTagManager extends Plugin {
 
   insertScript() {
     this.scriptElement.innerHTML = this.script();
-    DomHelpers.prepend(document.head, this.scriptElement);
+    document.head.insertBefore(this.scriptElement, document.head.firstChild);
   }
 
   insertNoScript() {
@@ -79,7 +78,7 @@ class GoogleTagManager extends Plugin {
     iframe.style.visibility = 'hidden';
 
     this.noScriptElement.appendChild(iframe);
-    DomHelpers.prepend(document.body, this.noScriptElement);
+    document.body.insertBefore(this.noScriptElement, document.body.firstChild);
   }
 
   execute() {
