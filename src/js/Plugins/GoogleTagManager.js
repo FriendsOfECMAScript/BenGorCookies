@@ -18,10 +18,8 @@ class GoogleTagManager extends Plugin {
     this.id = id;
     this.auth = auth;
     this.preview = preview;
-    this.scriptElement = document.createElement('div');
-    this.scriptElement.setAttribute('id', 'bengor-cookies-script-gtm');
-    this.noScriptElement = document.createElement('div');
-    this.noScriptElement.setAttribute('id', 'bengor-cookies-no-script-gtm');
+    this.scriptElement = document.createElement('script');
+    this.noScriptElement = document.createElement('noscript');
   }
 
   gtmScript() {
@@ -51,19 +49,11 @@ class GoogleTagManager extends Plugin {
   }
 
   gtmNoScript() {
-    return `
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${this.id}"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-`;
+    return `id=${this.id}`;
   }
 
   authGtmNoScript() {
-    return `
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${this.id}&gtm_auth=${this.auth}&gtm_preview=${
-      this.preview
-    }&gtm_cookies_win=x"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-`;
+    return `id=${this.id}&gtm_auth=${this.auth}&gtm_preview=${this.preview}&gtm_cookies_win=x"`;
   }
 
   script() {
@@ -75,12 +65,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   insertScript() {
-    this.scriptElement.innerHTML = `<script>${this.script()}</script>`;
-    DomHelpers.prepend(document.head, this.scriptElement, this.script());
+    this.scriptElement.innerHTML = this.script();
+    DomHelpers.prepend(document.head, this.scriptElement);
   }
 
   insertNoScript() {
-    this.noScriptElement.innerHTML = this.noScript();
+    const iframe = document.createElement('iframe');
+
+    iframe.setAttribute('src', `https://www.googletagmanager.com/ns.html?${this.noScript()}`);
+    iframe.style.height = '0';
+    iframe.style.width = '0';
+    iframe.style.display = 'none';
+    iframe.style.visibility = 'hidden';
+
+    this.noScriptElement.appendChild(iframe);
     DomHelpers.prepend(document.body, this.noScriptElement);
   }
 
