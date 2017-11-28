@@ -1,0 +1,73 @@
+// This file is part of the BenGorCookies library.
+//
+// (c) Beñat Espiña <benatespina@gmail.com>
+// (c) Gorka Laucirica <gorka.lauzirika@gmail.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+
+@import 'bengor-cookies';
+@import 'bengor-cookies-variables';
+
+.bengor-cookies {
+  align-items: center;
+  background-color: $bengor-cookies-background-color;
+  border-bottom: 1px solid $bengor-cookies-border-color;
+  bottom: inherit;
+  color: $bengor-cookies-color;
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  padding: 10px;
+  top: 0;
+  transform: translateY(-100%);
+  transition: $bengor-cookies-transition, visibility 0s linear .4s;
+  visibility: hidden;
+  z-index: $bengor-cookies-z-index;
+}
+
+.bengor-cookies--visible {
+  transform: translateY(0);
+  transition: $bengor-cookies-transition;
+  visibility: visible;
+}
+
+.bengor-cookies__content {
+  flex: 1 1 0;
+  max-width: none;
+  text-align: center;
+}
+
+.bengor-cookies__button {
+  background-color: transparent;
+  padding: 0;
+
+  &:hover {
+    background-color: transparent;
+
+    .svg-cookies {
+      fill: $bengor-cookies-link-color;
+    }
+  }
+}
+
+.bengor-cookies__actions {
+  flex: 0 0 auto;
+  line-height: 0;
+  margin-top: 0;
+  max-width: 100%;
+  padding-left: 10px;
+}
+
+.bengor-cookies__link {
+  color: $bengor-cookies-link-color;
+
+  &:hover {
+    color: $bengor-cookies-link-hover-color;
+  }
+}
+
+.bengor-cookies__svg {
+  fill: $bengor-cookies-color;
+}
+

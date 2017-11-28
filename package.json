@@ -33,7 +33,7 @@
     "prebuild": "node_modules/.bin/rimraf dist && node_modules/.bin/mkdirp dist",
     "build": "npm-run-all --parallel build:*",
     "build:main": "node_modules/.bin/babel src/js -d dist --ignore umd.js && rename dist/index.js bengor-cookies.js",
-    "build:webpack": "node_modules/.bin/webpack -p && node_modules/.bin/rimraf dist/*ie9.j*",
+    "build:webpack": "node_modules/.bin/webpack -p && node_modules/.bin/rimraf dist/*ie9.j* && node_modules/.bin/rimraf dist/*modern.j*",
     "cs": "npm run prettier && npm run eslint && npm run stylelint",
     "prettier": "node_modules/.bin/prettier 'src/js/**/*.js' 'test/**/*.js' --write --single-quote --no-bracket-spacing --trailing-comma es5 --print-width 120",
     "eslint": "node_modules/.bin/eslint -c .eslintrc.js src/js/ test/js/",

@@ -9,6 +9,9 @@ Zero dependencies, fully customizable JavaScript library for [IE9+](#browser-sup
 
 ![Snapshot](https://raw.githubusercontent.com/FriendsOfECMAScript/BenGorCookies/master/snapshot.png)
 
+![Snapshot2](https://raw.githubusercontent.com/FriendsOfECMAScript/BenGorCookies/master/snapshot2.png)
+> Check the following [section](#modern-theme) that explains the implementation process related to this banner.
+
 Everybody needs the cookies component in his website. Style this element is not very complex but the task is quite
 repetitive so, keeping in mind this use case BenGorCookies provides a robust and lightweight solution to build
 cookies component.
@@ -83,6 +86,8 @@ in the project stylesheets workflow. The following Sass variables are self-expla
 ```scss
 $bengor-cookies-background-color: #999 !default;
 
+$bengor-cookies-border-color: #999 !default;
+
 $bengor-cookies-color: #fff !default;
 
 $bengor-cookies-link-color: $bengor-cookies-color !default;
@@ -97,8 +102,62 @@ $bengor-cookies-button-color: $bengor-cookies-color !default;
 
 $bengor-cookies-content-max-width: 850px !default;
 
+$bengor-cookies-transition-duration: .4s !default;
+
+$bengor-cookies-transition: transform $bengor-cookies-transition-duration cubic-bezier(.94, .06, .32, .95) 0s !default;
+
+$bengor-cookies-z-index: 1000 !default;
+
 @import 'your/node_modules/root/path/bengor-cookies/src/scss/bengor-cookies';
 ```
+
+## Modern theme
+At the beginning of the document, two images are shown. If we like to implement the second one we need to include the
+`<link href="/your/path/bengor-cookies/dist/bengor-cookies.modern.css" type="text/css" rel="stylesheet">` CSS or use
+`@import 'your/node_modules/root/path/bengor-cookies/src/scss/bengor-cookies-modern';` Sass import.
+However, with only this step you can't obtain the same result of the image so, if you have a really special interest
+in getting the same banner you have to the following.
+
+```html
+<!-- ... -->
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" href="node_modules/bengor-cookies/dist/bengor-cookies.modern.css" />
+    <style>
+        .bengor-cookies {
+            background-color: #f7f7f7;
+            border-bottom: 1px solid #dadada;
+            color: #999;
+            font-family: Open Sans, sans-serif;
+        }
+
+        .bengor-cookies__link {
+            color: #444;
+        }
+
+        .bengor-cookies__svg {
+            fill: #999;
+        }
+    </style>
+
+<!-- ... -->
+    template: BenGorCookiesTemplates.Default({
+      link: '/cookies',
+      linkText: 'cookies policy',
+      text: 'We use bengor-cookies to provide a better browsing experience and a more ' +
+      'personalized service. If you continue browsing, we consider accepting its use. ' +
+      'You can get more information by consulting our',
+      acceptText: (`
+<span>
+    <svg class="bengor-cookies__svg" width="10px" height="10px" viewBox="0 0 16.264 16.264">
+        <polygon fill-rule="evenodd" clip-rule="evenodd" points="16.264,2.122 14.142,0 8.132,6.01 2.121,0 0,2.121
+        6.01,8.132 0,14.142 2.122,16.264 8.132,10.253 14.142,16.264 16.264,14.142 10.253,8.132 "></polygon>
+    </svg>
+</span>
+      `),
+<!-- ... -->
+``` 
+Obviously all the code related to CSS it can be easily override if you are using Sass with its variables.
 
 ## Browser Support
 **BenGorCookies supports all modern browsers and IE9+.**

@@ -2,10 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="node_modules/bengor-cookies/dist/bengor-cookies.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" href="node_modules/bengor-cookies/dist/bengor-cookies.modern.css" />
+    <style>
+        .bengor-cookies {
+            background-color: #f7f7f7;
+            border-bottom: 1px solid #dadada;
+            color: #999;
+            font-family: Open Sans, sans-serif;
+        }
+
+        .bengor-cookies__link {
+            color: #444;
+        }
+
+        .bengor-cookies__svg {
+            fill: #999;
+        }
+    </style>
 </head>
 <body style="margin: 0">
-<div style="height: 1000px">
+<div style="height: 2000px">
     This layout is used to force the scroll behaviour and test the onScrollAccept method!
 </div>
 <script>
@@ -26,11 +43,18 @@
     ],
     template: BenGorCookiesTemplates.Default({
       link: '/cookies',
-      linkText: 'Cookies policy',
+      linkText: 'cookies policy',
       text: 'We use bengor-cookies to provide a better browsing experience and a more ' +
       'personalized service. If you continue browsing, we consider accepting its use. ' +
-      'You can change the settings or get more information by consulting our',
-      acceptText: 'Accept',
+      'You can get more information by consulting our',
+      acceptText: (`
+<span>
+    <svg class="bengor-cookies__svg" width="10px" height="10px" viewBox="0 0 16.264 16.264">
+        <polygon fill-rule="evenodd" clip-rule="evenodd" points="16.264,2.122 14.142,0 8.132,6.01 2.121,0 0,2.121
+        6.01,8.132 0,14.142 2.122,16.264 8.132,10.253 14.142,16.264 16.264,14.142 10.253,8.132 "></polygon>
+    </svg>
+</span>
+      `),
     }),
     onAcceptCallback: () => {
       console.log('Cookies are now accepted!')

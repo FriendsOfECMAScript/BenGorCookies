@@ -101,6 +101,15 @@ module.exports = [Object.assign({
   },
 }, config), Object.assign({
   entry: {
+    'bengor-cookies.modern': './src/js/modern.js',
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bengor-cookies.modern.js',
+    libraryTarget: 'umd',
+  }
+}, config), Object.assign({
+  entry: {
     'bengor-cookies': './src/js/umd.js',
   },
   output: {
