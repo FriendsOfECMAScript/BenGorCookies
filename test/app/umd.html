@@ -4,10 +4,13 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="node_modules/bengor-cookies/dist/bengor-cookies.css"/>
 </head>
-<body>
+<body style="margin: 0">
 <div style="height: 1000px">
     This layout is used to force the scroll behaviour and test the onScrollAccept method!
 </div>
+<script>
+  document.cookie = 'bengor-cookie=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+</script>
 <script src="node_modules/bengor-cookies/dist/bengor-cookies.umd.js"></script>
 <script>
   new BenGorCookies({
