@@ -1,6 +1,6 @@
 {
   "name": "bengor-cookies",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "license": "MIT",
   "description": "Cookie warning banner that request user consent, European law compilant. Zero dependencies, fully customizable",
   "keywords": [
@@ -32,9 +32,10 @@
   "scripts": {
     "test": "node_modules/.bin/jest",
     "prebuild": "node_modules/.bin/rimraf dist && node_modules/.bin/mkdirp dist",
-    "build": "yarn prebuild && yarn cs && yarn common-bundle && yarn esm-bundle && yarn umd-bundle",
-    "common-bundle": "node_modules/.bin/babel --copy-files --out-dir dist/common src",
-    "esm-bundle": "cp -R src/ dist/esm",
+    "build": "yarn prebuild && yarn cs && yarn common-bundle && yarn esm-bundle && yarn umd-bundle && yarn sass-bundle",
+    "common-bundle": "node_modules/.bin/babel --copy-files --out-dir dist/common src/js",
+    "sass-bundle": "cp -R src/scss dist/scss",
+    "esm-bundle": "cp -R src/js/ dist/esm",
     "umd-bundle": "node_modules/.bin/webpack -p && node_modules/.bin/rimraf dist/*ie9.j* && node_modules/.bin/rimraf dist/*modern.j*",
     "cs": "npm run prettier && npm run eslint && npm run stylelint",
     "prettier": "node_modules/.bin/prettier 'src/js/**/*.js' 'test/**/*.js' --write --single-quote --no-bracket-spacing --trailing-comma es5 --print-width 120",
