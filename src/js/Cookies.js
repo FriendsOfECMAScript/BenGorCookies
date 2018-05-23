@@ -12,9 +12,13 @@ import * as CookieHelpers from './Helpers/CookieHelpers.js';
 import * as DomHelpers from './Helpers/DomHelpers.js';
 
 class Cookies {
-  constructor(
-    {triggers = 'html', maxPageYOffset = false, plugins = [], template = null, onAcceptCallback = () => {}} = {}
-  ) {
+  constructor({
+    triggers = 'html',
+    maxPageYOffset = false,
+    plugins = [],
+    template = null,
+    onAcceptCallback = () => {},
+  } = {}) {
     this.triggers = [...document.querySelectorAll(triggers)];
     this.cookieName = 'bengor-cookie';
     this.scrollMovement = 0;

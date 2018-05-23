@@ -1,6 +1,6 @@
 {
   "name": "bengor-cookies",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "license": "MIT",
   "description": "Cookie warning banner that request user consent, European law compilant. Zero dependencies, fully customizable",
   "keywords": [
@@ -20,7 +20,8 @@
       "homepage": "http://gorkalaucirica.net"
     }
   ],
-  "main": "dist/bengor-cookies.js",
+  "main": "dist/common/index.js",
+  "module": "dist/esm/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/FriendsOfECMAScript/BenGorCookies"
@@ -31,9 +32,10 @@
   "scripts": {
     "test": "node_modules/.bin/jest",
     "prebuild": "node_modules/.bin/rimraf dist && node_modules/.bin/mkdirp dist",
-    "build": "npm-run-all --parallel build:*",
-    "build:main": "node_modules/.bin/babel src/js -d dist --ignore umd.js && rename dist/index.js bengor-cookies.js",
-    "build:webpack": "node_modules/.bin/webpack -p && node_modules/.bin/rimraf dist/*ie9.j* && node_modules/.bin/rimraf dist/*modern.j*",
+    "build": "yarn prebuild && yarn cs && yarn common-bundle && yarn esm-bundle && yarn umd-bundle",
+    "common-bundle": "node_modules/.bin/babel --copy-files --out-dir dist/common src",
+    "esm-bundle": "cp -R src/ dist/esm",
+    "umd-bundle": "node_modules/.bin/webpack -p && node_modules/.bin/rimraf dist/*ie9.j* && node_modules/.bin/rimraf dist/*modern.j*",
     "cs": "npm run prettier && npm run eslint && npm run stylelint",
     "prettier": "node_modules/.bin/prettier 'src/js/**/*.js' 'test/**/*.js' --write --single-quote --no-bracket-spacing --trailing-comma es5 --print-width 120",
     "eslint": "node_modules/.bin/eslint -c .eslintrc.js src/js/ test/js/",
@@ -70,13 +72,15 @@
       }
     }
   },
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-minify": "^0.5.0-alpha.a28b6b00"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-minify": "^0.2.0",
     "css-loader": "^0.28.7",
     "cssnano": "^3.10.0",
     "eslint": "^4.12.0",

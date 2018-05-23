@@ -3,8 +3,10 @@
 This changelog references the relevant changes done between versions.
 
 To get the diff for a specific change, go to https://github.com/FriendsOfECMAScript/BenGorCookies/commit/XXX where XXX is the change hash 
-To get the diff between two versions, go to https://github.com/FriendsOfECMAScript/BenGorCookies/compare/v0.8.0...v0.9.0
+To get the diff between two versions, go to https://github.com/FriendsOfECMAScript/BenGorCookies/compare/v0.9.0...v0.10.0
 
+* 0.10.0
+    * Updated the package builds to support `umd`, `esm` and `common` versions.
 * 0.9.0
     * Added modern theme with its how to use section in the readme.
     * Removed custom `prepend` method from DomHelpers.
